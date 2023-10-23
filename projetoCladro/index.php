@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
--->
+
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Log in</title>
     </head>
     <body>
+        <header>
+            
+        </header>
+        
+        
+         
+        
+        <div class="cadastro">
+            <h2>E-mail:</h2>
+            <input type="email" name="email" id="email">
+            <h2>Senha:</h2>
+            <input type="password" name="senha" id="senha">
+            
+        </div>
+        
+        
+       
         <?php
-        // put your code here
         ?>
     </body>
 </html>
