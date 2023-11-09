@@ -1,8 +1,9 @@
 <?php
+
 require_once 'conexaoMysql.php';
 
-class pacienteModel
-{
+class pacienteModel {
+
     protected $id;
     protected $email;
     protected $nome;
@@ -12,86 +13,87 @@ class pacienteModel
     protected $data_nasc;
     protected $rg;
     protected $cpf;
+
 // getters
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
-    public function getEmail()
-    {
+
+    public function getEmail() {
         return $this->email;
     }
-    public function getNome()
-    {
+
+    public function getNome() {
         return $this->nome;
-    } 
-    public function getSenha()
-    {
+    }
+
+    public function getSenha() {
         return $this->senha;
     }
-    public function getEndereco()
-    {
+
+    public function getEndereco() {
         return $this->endereco;
     }
-    public function getIdade()
-    {
+
+    public function getIdade() {
         return $this->idade;
     }
-    public function getData_nasc()
-    {
+
+    public function getData_nasc() {
         return $this->data_nasc;
     }
-    public function getRg()
-    {
+
+    public function getRg() {
         return $this->rg;
     }
-    public function getCpf()
-    {
+
+    public function getCpf() {
         return $this->cpf;
     }
+
 // setters
-    public function setId($id): void
-    {
+    public function setId($id): void {
         $this->id = $id;
     }
-    public function setEmail($email): void
-    {
+
+    public function setEmail($email): void {
         $this->email = $email;
     }
-    public function setNome($nome): void
-    {
+
+    public function setNome($nome): void {
         $this->nome = $nome;
     }
-    public function setSenha($senha): void
-    {
+
+    public function setSenha($senha): void {
         $this->senha = $senha;
     }
-    public function setEndereco($endereco): void
-    {
+
+    public function setEndereco($endereco): void {
         $this->endereco = $endereco;
     }
-    public function setIdade($idade): void
-    {
+
+    public function setIdade($idade): void {
         $this->idade = $idade;
     }
-    public function setData_nasc($data_nasc):void
-    {
+
+    public function setData_nasc($data_nasc): void {
         $this->data_nasc = $data_nasc;
     }
-    public function setRg($rg):void
-    {
+
+    public function setRg($rg): void {
         $this->rg = $rg;
     }
-    public function setCpf($cpf):void
-    {   
+
+    public function setCpf($cpf): void {
         $this->cpf = $cpf;
     }
-    public function __construct()
-    {
+
+    public function __construct() {
+        
     }
-    public function Autenticar($email,$senha)
-    {
-        $sql = 'SELECT * FROM paciente where email = "'.$email.'" and senha = "'.$senha.'" ';
+
+    public function Autenticar($email, $senha) {
+        $sql = 'SELECT * FROM paciente where email = "' . $email . '" and senha = "' . $senha . '" ';
         $db = new ConexaoMysql();
         $db->Conectar();
         $resultList = $db->Consultar($sql);
@@ -105,13 +107,13 @@ class pacienteModel
             $_SESSION['login'] = $this->email;
             header('location:../index.php');
         } else {
-            header('location:../cadastro.php?cod=171');
+            header('location:../login.php?cod=171');
         }
         $db->Desconectar();
         return $resultList;
     }
-    public function loadById($id)
-    {
+
+    public function loadById($id) {
         //Criar um objeto de conexão
         $db = new ConexaoMysql();
         //Abrir conexão com banco de dados
@@ -125,63 +127,67 @@ class pacienteModel
             //Se retornou preenche as propriedades de raça
             foreach ($resultList as $value) {
                 $this->id = $value['id'];
-                $this->nome = $value['nome'];
                 $this->email = $value['email'];
-                $this->endereco = $value['endereco'];
+                $this->nome = $value['nome'];
                 $this->senha = $value['senha'];
+                $this->endereco = $value['endereco'];
+                $this->idaded = $value['idade'];
+                $this->data_nasc = $value['data_nasc'];
+                $this->rg = $value['rg'];
+                $this->cpf = $value['cpf'];
             }
         }
         //Desconectar do banco
         $db->Desconectar();
         return $resultList;
     }
-    public function insert()
-    {
+
+    public function insert() {
         //Criar um objeto de conexão
         $db = new ConexaoMysql();
         //Abrir conexão com banco de dados
         $db->Conectar();
         //Criar consulta
         $sql = 'INSERT INTO paciente values'
-            . '(0,"' . $this->email . '",'
-            . '"' . $this->nome . '",'
-            . '"' . $this->senha . '",'
-            . '"' . $this->endereco . '",'
-            . '"' . $this->idade . '",'
-            . '"' . $this->data_nasc . '",'
-            . '"' . $this->rg . '",'
-            . '"' . $this->cpf . '")';
-    echo $sql;
+                . '(0,"' . $this->email . '",'
+                . '"' . $this->nome . '",'
+                . '"' . $this->senha . '",'
+                . '"' . $this->endereco . '",'
+                . '"' . $this->idade . '",'
+                . '"' . $this->data_nasc . '",'
+                . '"' . $this->rg . '",'
+                . '"' . $this->cpf . '")';
+        echo $sql;
         //Executar método de inserção
         $db->Executar($sql);
         //Desconectar do banco
         $db->Desconectar();
         return $db->total;
     }
-    public function update()
-    {
+
+    public function update() {
         //Criar um objeto de conexão
         $db = new ConexaoMysql();
         //Abrir conexão com banco de dados
         $db->Conectar();
         $sql = 'UPDATE paciente SET '
-            . 'email="' . $this->email . '",'
-            . 'nome="' . $this->nome . '",'
-            . 'senha="' . $this->senha . '",'
-            . 'endereco="' . $this->endereco . '",'
-            . 'idade="' . $this->idade . '",'
-            . 'data_nasc="' . $this->data_nasc . '",'
-            . 'rg="' . $this->rg . '",'
-            . 'cpf="' . $this->cpf . '",'
-            . ' WHERE id = ' . $this->id;
+                . 'email="' . $this->email . '",'
+                . 'nome="' . $this->nome . '",'
+                . 'senha="' . $this->senha . '",'
+                . 'endereco="' . $this->endereco . '",'
+                . 'idade="' . $this->idade . '",'
+                . 'data_nasc="' . $this->data_nasc . '",'
+                . 'rg="' . $this->rg . '",'
+                . 'cpf ="' . $this->cpf . '"'
+                . 'WHERE id = ' . $this->id;
         //Executar método de inserção
         $db->Executar($sql);
         //Desconectar do banco
         $db->Desconectar();
         return $db->total;
     }
-    public function delete()
-    {
+
+    public function delete() {
         //Criar um objeto de conexão
         $db = new ConexaoMysql();
         //Abrir conexão com banco de dados
@@ -193,4 +199,5 @@ class pacienteModel
         $db->Desconectar();
         return $db->total;
     }
+
 }
