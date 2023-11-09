@@ -4,8 +4,8 @@ require_once './shared/header.php';
 <header>
     <a href="index.php"><img src="img/logo.png" class="logo"></a>
     <ul class="menu">
-        <li><a href="cadastro.php">Cadastrar</a></li>
-        <li><a href="login.php">Entrar</a></li>
+        <li><a href="cadastro.php"><b>Cadastrar</b></a></li>
+        <li><a href="login.php"><b>Entrar</b></a></li>
     </ul>
 </header>
 
@@ -14,7 +14,7 @@ require_once './shared/header.php';
     <form method="POST" action="controller/loginController.php">
         <div class="row">
             <div class="col-md-6">
-                <div class="entrar" style="margin-left: 30px; color:blanchedalmond">
+                <div class="entrar" style="margin-left: 30px; color:blanchedalmond ">
                     <h1>Clínica Epitelis</h1>
 
                     <p> Lorem ipsum dolor sit amet. Est consequatur error aut animi incidunt eos minima aliquam in quisquam alias.
