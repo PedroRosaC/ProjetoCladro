@@ -5,7 +5,7 @@ require_once './shared/header.php';
 <header>
     <a href="index.php"><img src="img/logo.png" class="logo"></a>
     <ul class="menu">
-        <li><a href="login.php">Entrar</a></li>
+        <li><b><a href="login.php">Entrar</a></b></li>
     </ul>
 </header>
 <div>

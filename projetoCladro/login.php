@@ -7,12 +7,12 @@ require_once './shared/header.php'
     
     <ul class="menu">
         <li>
-            <a href="cadastro.php?pg=1&&id=<?php
+            <b><a href="cadastro.php?pg=1&&id=<?php
     @session_start();
     echo $_SESSION['id'];
-    ?>">Alterar Cadastro</a>
+    ?>">Alterar Cadastro</a></b>
         </li>
-        <li><a href="cadastro.php">Cadastrar</a></li>
+        <li><b><a href="cadastro.php">Cadastrar</a></b></li>
     </ul>
 </header>
 
