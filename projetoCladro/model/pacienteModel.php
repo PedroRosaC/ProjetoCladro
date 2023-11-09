@@ -12,10 +12,7 @@ class pacienteModel
     protected $data_nasc;
     protected $rg;
     protected $cpf;
-
-
 // getters
-
     public function getId()
     {
         return $this->id;
@@ -32,7 +29,6 @@ class pacienteModel
     {
         return $this->senha;
     }
-    
     public function getEndereco()
     {
         return $this->endereco;
@@ -53,9 +49,7 @@ class pacienteModel
     {
         return $this->cpf;
     }
-
 // setters
-
     public function setId($id): void
     {
         $this->id = $id;
@@ -67,11 +61,11 @@ class pacienteModel
     public function setNome($nome): void
     {
         $this->nome = $nome;
-    } public function setSenha($senha): void
+    }
+    public function setSenha($senha): void
     {
         $this->senha = $senha;
     }
-    
     public function setEndereco($endereco): void
     {
         $this->endereco = $endereco;
@@ -92,56 +86,40 @@ class pacienteModel
     {   
         $this->cpf = $cpf;
     }
-   
-   
     public function __construct()
     {
     }
-    public function Autenticar()
+    public function Autenticar($email,$senha)
     {
-
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $rg = $_POST['rg'];
-        $cpf = $_POST['cpf'];
-        
-        $sql = "SELECT * FROM paciente where email = '$email' and senha = '$senha' and rg = '$rg' and cpf = '$cpf'  ";
-
+        $sql = 'SELECT * FROM paciente where email = "'.$email.'" and senha = "'.$senha.'" ';
         $db = new ConexaoMysql();
-
         $db->Conectar();
-
         $resultList = $db->Consultar($sql);
-
         if ($db->total == 1) {
-
-            $_SESSION['login'] = $email;
-            header('location:../home.php');
+            foreach ($resultList as $data) {
+                $this->id = $data['id'];
+                $this->email = $data['email'];
+            }
+            @session_start();
+            $_SESSION['id'] = $this->id;
+            $_SESSION['login'] = $this->email;
+            header('location:../index.php');
         } else {
             header('location:../cadastro.php?cod=171');
         }
-
         $db->Desconectar();
-
         return $resultList;
     }
-    /*
-     * Carrega a raça pelo identificador único
-     */
     public function loadById($id)
     {
-
         //Criar um objeto de conexão
         $db = new ConexaoMysql();
-
         //Abrir conexão com banco de dados
         $db->Conectar();
-
         //Criar consulta
-        $sql = 'SELECT * FROM usuario where id =' . $id;
+        $sql = 'SELECT * FROM paciente where id =' . $id;
         //Executar método de consulta
         $resultList = $db->Consultar($sql);
-
         //Verifica se retornou um registro da base de dados
         if ($db->total == 1) {
             //Se retornou preenche as propriedades de raça
@@ -153,24 +131,16 @@ class pacienteModel
                 $this->senha = $value['senha'];
             }
         }
-
-
-
         //Desconectar do banco
         $db->Desconectar();
-
         return $resultList;
     }
-
     public function insert()
     {
-
         //Criar um objeto de conexão
         $db = new ConexaoMysql();
-
         //Abrir conexão com banco de dados
         $db->Conectar();
-
         //Criar consulta
         $sql = 'INSERT INTO paciente values'
             . '(0,"' . $this->email . '",'
@@ -181,27 +151,20 @@ class pacienteModel
             . '"' . $this->data_nasc . '",'
             . '"' . $this->rg . '",'
             . '"' . $this->cpf . '")';
-
+    echo $sql;
         //Executar método de inserção
-        
         $db->Executar($sql);
-
         //Desconectar do banco
         $db->Desconectar();
-
         return $db->total;
     }
-
     public function update()
     {
-
         //Criar um objeto de conexão
         $db = new ConexaoMysql();
-
         //Abrir conexão com banco de dados
         $db->Conectar();
-
-        $sql = 'UPDATE usuario SET '
+        $sql = 'UPDATE paciente SET '
             . 'email="' . $this->email . '",'
             . 'nome="' . $this->nome . '",'
             . 'senha="' . $this->senha . '",'
@@ -210,37 +173,24 @@ class pacienteModel
             . 'data_nasc="' . $this->data_nasc . '",'
             . 'rg="' . $this->rg . '",'
             . 'cpf="' . $this->cpf . '",'
-
-            . 'WHERE id = ' . $this->id;
-
+            . ' WHERE id = ' . $this->id;
         //Executar método de inserção
         $db->Executar($sql);
-
         //Desconectar do banco
         $db->Desconectar();
-
         return $db->total;
     }
-
     public function delete()
     {
-
         //Criar um objeto de conexão
         $db = new ConexaoMysql();
-
         //Abrir conexão com banco de dados
         $db->Conectar();
-
         $sql = 'DELETE FROM paciente WHERE id=' . $this->id;
-
-
         //Executar método de inserção
         $db->Executar($sql);
-
         //Desconectar do banco
         $db->Desconectar();
-
         return $db->total;
     }
 }
-

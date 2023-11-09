@@ -1,26 +1,23 @@
 <?php
-require_once '../model/pacienteModel.php';
 if ($_POST) {
-    $paciente = new pacienteModel;
-    $email = $_POST['email'];
-    $nome = $_POST['nome'];
-    $senha = $_POST['senha'];
-    $endereco = $_POST['endereco'];
-    $idade = $_POST['idade'];
-    $data_nasc = $_POST['data_nasc'];
-    $rg = $_POST['rg'];
-    $cpf = $_POST['cpf'];
-
-
-     if (
-        !empty($_POST['email']) && !empty($_POST['nome']) &&
-        !empty($_POST['senha']) && !empty($_POST['endereco']) &&
-        !empty($_POST['idade']) && !empty($_POST['data_nasc']) && 
-        !empty($_POST['rg']) && !empty($_POST['cpf'])
-    ) {
-
-        $paciente->insert();
-        echo $email;
-        }
-    
+require_once '../model/pacienteModel.php';
+    $paciente = new pacienteModel();
+    $paciente->setEmail($_POST['email']);
+    $paciente->setNome($_POST['nome']);    
+    $paciente->setSenha($_POST['senha']);
+    $paciente->setEndereco($_POST['endereco']);
+    $paciente->setIdade($_POST['idade']);
+    $paciente->setData_nasc($_POST['data_nasc']);
+    $paciente->setRg($_POST['rg']);
+    $paciente->setCpf($_POST['cpf']);
+    if(!empty($_POST['email'])&&!empty($_POST['nome'])&&!empty($_POST['senha'])
+            &&!empty($_POST['endereco'])&&!empty($_POST['idade'])
+            &&!empty($_POST['data_nasc'])&&!empty($_POST['rg'])&&!empty($_POST['cpf'])){
+        $total = $paciente->insert(); 
+        //header('location:../cadastro.php?cod=172');
+    } else {
+       // header('location:../cadastro.php?cod=171');
+    }
+} else {
+    //header('location:../index.php');
 }

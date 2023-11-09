@@ -14,7 +14,7 @@ require_once './shared/header.php';
             <div class="col-md-4">
             </div>
             <div class="col-md-4">
-                <div style="background-color: white; border-radius: 6px; box-shadow: 0px 5px 20px #000; ">
+                <div style="background-color: white; border-radius: 15px; box-shadow: 0px 5px 20px #000; ">
                     <div class="entrar">
                         <h3>E-mail:</h3>
                         <input type="email" name="email" id="email" class="input" placeholder="Insira seu e-mail">
@@ -34,6 +34,22 @@ require_once './shared/header.php';
                         <input type="text" name="cpf" id="cpf" class="input" placeholder="CPF do paciente">
                         <br><br>
                         <input type="submit" name="entrar" value="Entrar" class="submit">
+                        <?php
+                        echo '<div class="d-grid">';
+                        @$cod = $_REQUEST['cod'];
+                        if (isset($cod)) {
+                            if ($cod == '171') {
+                                echo ('<br><div class="alert alert-danger">');
+                                echo ('Verifique usuário ou senha.');
+                                echo ('</div>');
+                            }if ($cod == '172') {
+                                echo ('<br><div class="alert alert-success">');
+                                echo ('FOI PORRA.');
+                                echo ('</div>');
+                            }
+                        }
+                        echo '</div>';
+                        ?>
                     </div>
                 </div>
             </div>
@@ -42,7 +58,5 @@ require_once './shared/header.php';
     </form>
 </div>
 <?php
-?>
-<?php
-require_once './shared/footer.php'
+require_once './shared/footer.php';
 ?>
