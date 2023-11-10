@@ -8,24 +8,17 @@ require_once './shared/header.php';
         <li><b><a href="login.php">Entrar</a></b></li>
     </ul>
 </header>
-<div>
+<div class="entrar entrar2">
+    <?php
+    $pg = isset($_REQUEST['pg']) ? $_REQUEST['pg'] : null;
+    if (isset($pg)) {
+        if ($pg == '1') {
 
-    <div class="row">
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-4">
-            <div style="background-color: white; border-radius: 15px; box-shadow: 0px 5px 20px #000; ">
-                <div class="entrar">
-                    <?php
-                    $pg = isset($_REQUEST['pg']) ? $_REQUEST['pg'] : null;
-                    if (isset($pg)) {
-                        if ($pg == '1') {
-
-                            require_once './controller/loginController.php';
-                            $id = $_REQUEST['id'];
-                            $pacienteObject = loadById($id);
-                            echo '
-                                   <form method="POST" action="controller/loginController.php">
+            require_once './controller/loginController.php';
+            $id = $_REQUEST['id'];
+            $pacienteObject = loadById($id);
+            echo '
+                        <form method="POST" action="controller/loginController.php">
                         <h3>E-mail:</h3>
                         <input type="hidden" name="id" value="' . @(isset($pacienteObject) ? $pacienteObject->getId($id) : '') . '" >
                         <input type="email" name="email" id="email" class="input" placeholder="Insira seu e-mail"
@@ -54,10 +47,12 @@ require_once './shared/header.php';
                         <br><br>
                         <input type="submit" name="entrar" value="Entrar" class="submit">
                         </form>';
-                        }
-                    } else {
-                        echo '
-                                <form method="POST" action="controller/cadastroController.php">
+        }
+    } else {
+        echo '
+                        <form method="POST" action="controller/cadastroController.php">
+                        
+                        <h1>Cadastrar</h1>
                         <h3>E-mail:</h3>
                         <input type="email" name="email" id="email" class="input" placeholder="Insira seu e-mail">
                         <h3>Nome:</h3>
@@ -77,26 +72,24 @@ require_once './shared/header.php';
                         <br><br>
                         <input type="submit" name="entrar" value="Entrar" class="submit">
                         </form>';
-                    }
-                    ?>
-                    <?php
-                    echo '<div class="d-grid">';
-                    @$cod = $_REQUEST['cod'];
-                    if (isset($cod)) {
-                        if ($cod == '171') {
-                            echo ('<br><div class="alert alert-danger">');
-                            echo ('Verifique usuário ou senha.');
-                            echo ('</div>');
-                        }
-                    }
-                    echo '</div>';
-                    ?>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4"></div>
-    </div>
+    }
+    ?>
+    <?php
+    echo '<div class="d-grid">';
+    @$cod = $_REQUEST['cod'];
+    if (isset($cod)) {
+        if ($cod == '171') {
+            echo ('<br><div class="alert alert-danger">');
+            echo ('Verifique usuário ou senha.');
+            echo ('</div>');
+        }
+    }
+    echo '</div>';
+    ?>
 </div>
+
+
+
 <?php
 require_once './shared/footer.php';
 ?>

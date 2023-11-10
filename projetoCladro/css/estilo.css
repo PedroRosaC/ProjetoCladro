@@ -8,8 +8,9 @@ body {
     width: 100%;
     height: 100%;
     background-size: cover;
+    background-attachment: fixed;
     overflow-x: hidden;
-    background-image: linear-gradient(to bottom, rgb(255, 158, 188), rgb(197, 200, 255));
+    background-image: linear-gradient(to bottom,  rgb(255, 144, 161), rgb(255, 158, 188), rgb(197, 200, 255));
 }
 img {
     width: 100%;
@@ -22,15 +23,17 @@ img {
 /* Estilo do header ---------- */
 
 header {
+    
+    margin-top: 0;
     box-shadow: 0px 5px 20px #000;
     justify-content: space-between;
     display: flex;
     width: 100%;
-    height: 80px;
+    height: 90px;
     padding: 10px;
     background-color: #9a4834;
-    justify-content: space-between;
-    position: fixed;
+   
+
 }
 
 .menu {
@@ -47,12 +50,13 @@ header {
     display: block;
     margin-left: 10px;
     padding: 10px;
+    border-radius: 5px;
     background-color: #bc646c;
 }
 
 .menu li a:hover {
     background-color: #e27f88;
-    border-radius: 2px;
+    border-radius: 5px;
 }
 
 .logo {
@@ -67,18 +71,15 @@ header {
 
 /* Estilo do log in ---------- */
 .entrar {
-    margin-top: 25%;
-    margin-bottom: 20%;
+    margin: 30px auto;
+    width: 350px;
+    height: fit-content;
     background-color: #bc646c;
     padding: 30px;
-    padding-left: 10%;
-    padding-right: 10%;
     align-content: center;
     border-radius: 13px;
     color: blanchedalmond;
-    box-shadow: 0px 5px 20px #000;
-    border-color: #6d393e;
-    
+    box-shadow: 0px 5px 10px 0px #000;
 }
 
 .submit {
@@ -97,14 +98,47 @@ header {
     border-radius: 30px;
     background-color: #b87479;
     text-align: justify;
-    color: white;
+    color: blanchedalmond;
     width: 80%;
     padding-left: 10px;
 }
 
 .input::placeholder {
-    color: white;
+    color: blanchedalmond;
     padding-left: 3%;
     margin-left: 20px ;
 }
 /* --------------------------- */
+
+/* estilo página inicial ----- */
+.info{
+    margin: 0 auto;
+    display: flex; 
+
+}
+
+/* --------------------------- */
+
+/* estilo página local ------- */
+.local{
+    border:0;
+    margin: 30px auto;
+    width: 450px;
+    height: fit-content;
+    background-image: linear-gradient(to top right, rgb(149, 192, 255),  rgb(255, 154, 223) ,rgb(255, 142, 142) );
+    padding: 25px;
+    align-content: center;
+    border-radius: 13px;
+    color: blanchedalmond;
+    box-shadow: 0px 5px 10px 0px #000;
+    
+}
+iframe{
+    
+    border: 0;
+    border-radius: 13px;
+    width: 400px;
+}
+
+/* --------------------------- */
+
