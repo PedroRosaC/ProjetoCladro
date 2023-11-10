@@ -9,7 +9,7 @@ require_once './shared/header.php'
         <li>
             <b><a href="cadastro.php?pg=1&&id=<?php
                                                 @session_start();
-                                                echo $_SESSION['id'];
+                                                echo @$_SESSION['id'];
                                                 ?>">Alterar Cadastro</a></b>
         </li>
         <li><b><a href="cadastro.php">Cadastrar</a></b></li>
