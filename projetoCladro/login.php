@@ -38,7 +38,6 @@ require_once './shared/header.php'
         ?>
     </div>
 </form>
-<br><br><br><br><br><br>
 <?php
 require_once './shared/footer.php'
 ?>

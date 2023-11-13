@@ -105,7 +105,7 @@ class pacienteModel {
             @session_start();
             $_SESSION['id'] = $this->id;
             $_SESSION['login'] = $this->email;
-            header('location:../index.php');
+            header('location:../home.php');
         } else {
             header('location:../login.php?cod=171');
         }
@@ -131,7 +131,7 @@ class pacienteModel {
                 $this->nome = $value['nome'];
                 $this->senha = $value['senha'];
                 $this->endereco = $value['endereco'];
-                $this->idaded = $value['idade'];
+                $this->idade = $value['idade'];
                 $this->data_nasc = $value['data_nasc'];
                 $this->rg = $value['rg'];
                 $this->cpf = $value['cpf'];

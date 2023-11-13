@@ -7,10 +7,10 @@
 body {
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
+    background-image: linear-gradient(to bottom,  rgba(255, 144, 161), rgba(255, 158, 189), rgb(179, 183, 255));
     background-size: cover;
     background-attachment: fixed;
-    overflow-x: hidden;
-    background-image: linear-gradient(to bottom,  rgb(255, 144, 161), rgb(255, 158, 188), rgb(197, 200, 255));
 }
 img {
     width: 100%;
@@ -34,6 +34,9 @@ header {
     background-color: #884a50;
    
 
+}
+.logoebarra{
+    display: flex;
 }
 .footer{
     
@@ -61,21 +64,24 @@ header {
     text-decoration: none;
     color: #ffffff;
     display: block;
-    margin-left: 10px;
+    margin-left: 17px;
     padding: 10px;
     border-radius: 5px;
     background-color: #bc646c;
+    transition: 0.8s;
 }
 
 .menu li a:hover {
+    transform: scale(1.2);
     background-color: #e27f88;
     border-radius: 5px;
+    
 }
 
 .logo {
     width: 150px;
     height: 60px;
-    border: #bc646c;
+    margin-left: 30px;
     border-radius: 0%;
 
 }
@@ -159,13 +165,21 @@ header {
     color: blanchedalmond;
     box-shadow: 0px 5px 10px 0px #000;
 }
-iframe{
-    
-    border: 0;
-    border-radius: 13px;
-    width: 100%;
-    height: 90%;
-}
 
 /* --------------------------- */
 
+/* estilo da home ------------ */
+
+.bloco{
+    margin-left: auto;
+    background-color: #b87479;
+    width: 10px;
+    height: fit-content;
+}
+.sidebar{
+    width: 80px;
+    height: 700px;
+    border: 3px #000 dashed;
+}
+
+/* --------------------------- */
