@@ -2,7 +2,13 @@
 require_once './shared/header.php';
 ?>
 <header>
-    <a href="index.php"><img src="img/logo.png" class="logo"></a>
+    <div class="logoebarra">
+        <div class="sidebar">
+            <button></button>
+        </div>
+
+        <a href="index.php"><img src="img/logo.png" class="logo"></a>
+    </div>
     <ul class="menu">
         <li><a href="cadastro.php"><b>Cadastrar</b></a></li>
         <li><a href="login.php"><b>Entrar</b></a></li>
@@ -10,7 +16,10 @@ require_once './shared/header.php';
     </ul>
 </header>
 
+
+
 <div class="info">
+
     <div class="informacoes">
         <h1>Clínica Epitelis</h1>
         <h3>Serviços oferecidos:</h3>
@@ -48,14 +57,13 @@ require_once './shared/header.php';
     <h4><b>Criadores do site</b></h4>
     <ul>
         <li>
-            Pedro Rosa Cauduro - Colégio Técnico industrial de Santa Maria 
+            Pedro Rosa Cauduro - Colégio Técnico industrial de Santa Maria
         </li>
         <li>
             Clara Becker Saldanha - Colégio Técnico industrial de Santa Maria
         </li>
     </ul>
 </div>
-
 
 <?php
 require_once './shared/footer.php'
