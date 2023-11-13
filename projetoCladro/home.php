@@ -12,8 +12,6 @@ require_once './shared/header.php';
 
 <div class="footer">
 </div>
-
-
 <?php
 require_once './shared/footer.php'
 ?>

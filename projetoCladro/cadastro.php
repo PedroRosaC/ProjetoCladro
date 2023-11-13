@@ -1,6 +1,5 @@
 <?php
 require_once './shared/header.php';
-//require_once './controller/autenticationController.php';
 ?>
 <header>
     <a href="index.php"><img src="img/logo.png" class="logo"></a>
@@ -13,12 +12,11 @@ require_once './shared/header.php';
     $pg = isset($_REQUEST['pg']) ? $_REQUEST['pg'] : null;
     if (isset($pg)) {
         if ($pg == '1') {
-
-            require_once './controller/loginController.php';
+            require_once './controller/loginPacienteController.php';
             $id = $_REQUEST['id'];
             $pacienteObject = loadById($id);
             echo '
-                        <form method="POST" action="controller/loginController.php">
+                        <form method="POST" action="controller/loginPacienteController.php">
                         <h3>E-mail:</h3>
                         <input type="hidden" name="id" value="' . @(isset($pacienteObject) ? $pacienteObject->getId($id) : '') . '" >
                         <input type="email" name="email" id="email" class="input" placeholder="Insira seu e-mail"
@@ -50,7 +48,7 @@ require_once './shared/header.php';
         }
     } else {
         echo '
-                        <form method="POST" action="controller/cadastroController.php">
+                        <form method="POST" action="controller/cadastroPacienteController.php">
                         
                         <h1>Cadastrar</h1>
                         <h3>E-mail:</h3>
