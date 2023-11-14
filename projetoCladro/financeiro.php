@@ -6,7 +6,7 @@ require_once './shared/header.php';
     <a href="index.php"><img src="img/logo.png" class="logo"></a>
 
     <ul class="menu">
-        <li><a href="local.php"><b>sim</b></a></li>
+        <li><a href="local.php"><b>Localização</b></a></li>
     </ul>
 </header>
 
@@ -15,7 +15,7 @@ require_once './shared/header.php';
 <div class="tabela">
 <table>
   <tr>
-    <th class="tabelaitens">Ganhos do mês</th>
+    <th class="tabelaitens">Ganhos</th>
     <th class="tabelaitens">Despesas</th>
     <th class="tabelaitens">Total</th>
   </tr>
