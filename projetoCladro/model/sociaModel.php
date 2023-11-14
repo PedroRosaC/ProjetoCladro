@@ -1,5 +1,5 @@
 <?php
-
+require_once 'conexaoMysql.php';
 class sociaModel {
 
     protected $id;

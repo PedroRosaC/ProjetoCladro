@@ -12,7 +12,7 @@ if ($_POST) {
     $paciente->setRg($_POST['rg']);
     $paciente->setCpf($_POST['cpf']);
     if (!empty($_POST['email']) && !empty($_POST['nome']) && !empty($_POST['senha']) && !empty($_POST['endereco']) && !empty($_POST['idade']) && !empty($_POST['data_nasc']) && !empty($_POST['rg']) && !empty($_POST['cpf'])) {
-        $total = $socia->insert();
+        $total = $paciente->insert();
         header('location:../cadastro.php?cod=172');
     } else {
         header('location:../cadastro.php?cod=171');

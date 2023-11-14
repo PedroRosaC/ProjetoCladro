@@ -1,6 +1,6 @@
 <?php
-class atendenteModel
-{
+require_once 'conexaoMysql.php';
+class atendenteModel{
     protected $id;
     protected $email;
     protected $nome;

@@ -12,8 +12,8 @@ if ($_POST) {
         $socia->setEmail($email);
         $socia->setNome($nome);
         $socia->setSenha($senha);
-        $socia->setEndereco($disponibilidade);
-        $socia->setIdade($servico);
+        $socia->setDisponibilidade($disponibilidade);
+        $socia->setServicos($servico);
         $socia->update();
     } else {
     $socia->Autenticar($email,$senha); //retorna 0 ou 1  
@@ -22,16 +22,13 @@ if ($_POST) {
     if (isset($_REQUEST)) {
         require_once './model/sociaModel.php';
         @$id = $_REQUEST['id'];
-        $socia = new pacienteModel();
+        $socia = new sociaModel();
         $socia ->loadById($id);
     }
 }
 function loadById($id) {
-    //Importo raças model
-    require_once './model/';
-    //Crio um objeto do tipo raças
+    require_once './model/sociaModel.php';
     $paciente = new pacienteModel();
-    //Executa o método para carregar por id
     $paciente->loadById($id);
     return $paciente;
 }
