@@ -2,9 +2,13 @@
 require_once './shared/header.php';
 ?>
 <header>
+    <div class="logoebarra">
+        <div class="sidebar">
+            <button></button>
+        </div>
 
         <a href="index.php"><img src="img/logo.png" class="logo"></a>
-
+    </div>
     <ul class="menu">
         <li><a href="cadastro.php"><b>Cadastrar</b></a></li>
         <li><a href="login.php"><b>Entrar</b></a></li>

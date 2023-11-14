@@ -1,0 +1,20 @@
+ver oq colocar no cadastro inicial 
+nome
+telefone contato
+data nasc
+endereço
+rg
+cpf
+(email e senha pra logar)
+
+oq tem no estoque? (exemplos...)
+soro fisiologico
+gaze
+micropore
+chumaço
+alcool
+cobertura curativo
+agua destilada
+
+é vendido/distribuido remédio na clinica?
+não, só produto pra curativo e material de estética

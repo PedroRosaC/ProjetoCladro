@@ -85,7 +85,7 @@ else {
         <label><input type="radio" value="atendente" name="tipo" id="atendente"> Atendente</label><br>
         <label><input type="radio" value="socia" name="tipo" id="socia"> Socia</label><br>
         <label><input type="radio" value="paciente" name="tipo" id="paciente"> Paciente</label><br>
-        <input type="submit" class="submit">
+        <input type="submit">
         </div>
         </form>';
 }

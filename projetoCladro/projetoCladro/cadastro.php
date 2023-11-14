@@ -92,7 +92,7 @@ if ($_POST) {
                   </form>
                   </div>';
         }
-        if ($tipo == 'atendente') {
+        if ($tipo=='atendente'){
             echo '<div class="entrar entrar2">
                   <form method="POST" action="controller/cadastroAtendenteController.php">
                   <h1>Cadastrar</h1>
@@ -110,19 +110,18 @@ if ($_POST) {
         }
     }
 } else {
-    echo '<form method="POST" action="cadastro.php">
+    echo'<form method="POST" action="cadastro.php">
         <div class="entrar">
         <h2>Que tipo de usuário é você?</h2>
-        <label><input class="form-check-input" type="radio" value="atendente" name="tipo" id="atendente"> Atendente</label><br>
-        <label><input class="form-check-input" type="radio" value="socia" name="tipo" id="socia"> Socia</label><br>
-        <label><input class="form-check-input" type="radio" value="paciente" name="tipo" id="paciente"> Paciente</label><br>
-        <input type="submit" class="submit">
+        <label><input type="radio" value="atendente" name="tipo" id="atendente"> Atendente</label><br>
+        <label><input type="radio" value="socia" name="tipo" id="socia"> Socia</label><br>
+        <label><input type="radio" value="paciente" name="tipo" id="paciente"> Paciente</label><br>
+        <input type="submit">
         </div>
         </form>';
 }
 ?>
 <?php
-
 echo '<div style="
     margin: 30px auto;
     width: 350px;
@@ -134,13 +133,11 @@ if (isset($cod)) {
         echo ('<br><div class="alert alert-danger">');
         echo ('Verifique usuário ou senha.');
         echo ('</div>');
-    }
-    if ($cod == '170') {
+    }if ($cod == '170') {
         echo ('<br><div class="alert alert-danger">');
         echo ('Dados não inseridos.');
         echo ('</div>');
-    }
-    if ($cod == '172') {
+    }if ($cod == '172') {
         echo ('<br><div class="alert alert-success">');
         echo ('Dados inseridos com sucesso');
         echo ('</div>');
