@@ -189,21 +189,29 @@ iframe{
 }
 
 /* --------------------------- */
+
 /* estilo da tabela ---------- */
+table{
+    color: blanchedalmond;
+}
 .tabela{
-    background-color: #bc646c;
+    background-color: #ff98a0;
     align-items: center;
     margin: 30px auto;
     width: fit-content;
     height: fit-content;
-    border: 10px #bc646c ;
+    border: 3px #e27f88;
     border-style: solid;
+    border-radius: 3px;
+    box-shadow:  0px 5px 10px 0px #000;
 
 }
 .tabelaitens{
-    border: 1px #ff98a0 ;
+    border: 1px #e24b73 double;
     padding: 10px;
 
 }
-
+th{
+    background-color: #6d393e;
+}
 /* --------------------------- */
