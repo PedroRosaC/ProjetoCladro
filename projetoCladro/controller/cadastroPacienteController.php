@@ -15,7 +15,7 @@ if ($_POST) {
         $total = $paciente->insert();
         header('location:../cadastro.php?cod=172');
     } else {
-        header('location:../cadastro.php?cod=171');
+        header('location:../cadastro.php?cod=170');
     }
 } else {
     header('location:../index.php');

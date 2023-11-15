@@ -40,11 +40,12 @@ class atendenteModel{
         $this->funcao = $funcao;
     }
     public function Autenticar($email, $senha) {
-        $sql = 'SELECT * FROM atendente where email = "' . $email . '" and senha = "' . $senha . '" ';
+        $sql = 'SELECT * FROM atendente where email = "' . $email . '" and senha = "' . md5($senha). '" ';
         $db = new ConexaoMysql();
         $db->Conectar();
         $resultList = $db->Consultar($sql);
-        if ($db->total == 1) {
+        $total =$db->total;
+        if ($total==1) {
             foreach ($resultList as $data) {
                 $this->id = $data['id'];
                 $this->email = $data['email'];
@@ -84,26 +85,24 @@ class atendenteModel{
         $db->Desconectar();
         return $resultList;
     }
-
     public function insert() {
         //Criar um objeto de conexão
         $db = new ConexaoMysql();
         //Abrir conexão com banco de dados
         $db->Conectar();
         //Criar consulta
+        $this-> senha = md5($this->senha);
         $sql = 'INSERT INTO atendente values'
                 . '(0,"' . $this->email . '",'
                 . '"' . $this->nome . '",'
                 . '"' . $this->senha . '",'
                 . '"' . $this->funcao . '")';
-        echo $sql;
         //Executar método de inserção
         $db->Executar($sql);
         //Desconectar do banco
         $db->Desconectar();
         return $db->total;
     }
-
     public function update() {
         //Criar um objeto de conexão
         $db = new ConexaoMysql();
@@ -112,10 +111,9 @@ class atendenteModel{
         $sql = 'UPDATE atendente SET '
                 . 'email="' . $this->email . '",'
                 . 'nome="' . $this->nome . '",'
-                . 'senha="' . $this->senha . '",'
+                . 'senha="' . md5($this->senha) . '",'
                 . 'endereco="' . $this->funcao . '",'
                 . 'WHERE id = ' . $this->id;
-        echo $sql;
         //Executar método de inserção
         $db->Executar($sql);
         //Desconectar do banco

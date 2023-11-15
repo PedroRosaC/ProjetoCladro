@@ -13,7 +13,6 @@ class pacienteModel {
     protected $data_nasc;
     protected $rg;
     protected $cpf;
-
     public function getId() {
         return $this->id;
     }
@@ -72,11 +71,12 @@ class pacienteModel {
         
     }
     public function Autenticar($email, $senha) {
-        $sql = 'SELECT * FROM paciente where email = "' . $email . '" and senha = "' . $senha . '" ';
+        $sql = 'SELECT * FROM paciente where email = "' . $email . '" and senha = "' . md5($senha) . '" ';
         $db = new ConexaoMysql();
         $db->Conectar();
         $resultList = $db->Consultar($sql);
-        if ($db->total == 1) {
+        $total =$db->total;
+        if ($total==1) {
             foreach ($resultList as $data) {
                 $this->id = $data['id'];
                 $this->email = $data['email'];
@@ -84,7 +84,7 @@ class pacienteModel {
             @session_start();
             $_SESSION['id'] = $this->id;
             $_SESSION['login'] = $this->email;
-            header('location:../home.php');
+            header('location:../index.php');
         } else {
             header('location:../login.php?cod=171');
         }
@@ -125,6 +125,7 @@ class pacienteModel {
         //Abrir conexão com banco de dados
         $db->Conectar();
         //Criar consulta
+        $this-> senha = md5($this->senha);
         $sql = 'INSERT INTO paciente values'
                 . '(0,"' . $this->email . '",'
                 . '"' . $this->nome . '",'
@@ -134,7 +135,6 @@ class pacienteModel {
                 . '"' . $this->data_nasc . '",'
                 . '"' . $this->rg . '",'
                 . '"' . $this->cpf . '")';
-        echo $sql;
         //Executar método de inserção
         $db->Executar($sql);
         //Desconectar do banco
@@ -149,14 +149,13 @@ class pacienteModel {
         $sql = 'UPDATE paciente SET '
                 . 'email="' . $this->email . '",'
                 . 'nome="' . $this->nome . '",'
-                . 'senha="' . $this->senha . '",'
+                . 'senha="' .  md5($this->senha) . '",'
                 . 'endereco="' . $this->endereco . '",'
                 . 'idade="' . $this->idade . '",'
                 . 'data_nasc="' . $this->data_nasc . '",'
                 . 'rg="' . $this->rg . '",'
                 . 'cpf ="' . $this->cpf . '"'
                 . 'WHERE id = ' . $this->id;
-        echo $sql;
         //Executar método de inserção
         $db->Executar($sql);
         //Desconectar do banco
@@ -175,5 +174,4 @@ class pacienteModel {
         $db->Desconectar();
         return $db->total;
     }
-
 }

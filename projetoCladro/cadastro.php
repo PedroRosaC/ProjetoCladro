@@ -8,7 +8,7 @@ require_once './shared/header.php';
     </ul>
 </header>
 <?php
-if ($_POST) {
+if ($_REQUEST) {
     @$tipo = $_POST['tipo'];
     $pg = isset($_REQUEST['pg']) ? $_REQUEST['pg'] : null;
     if (isset($pg)) {
@@ -130,11 +130,6 @@ echo '<div style="
 echo '<div class="d-grid">';
 @$cod = $_REQUEST['cod'];
 if (isset($cod)) {
-    if ($cod == '171') {
-        echo ('<br><div class="alert alert-danger">');
-        echo ('Verifique usuário ou senha.');
-        echo ('</div>');
-    }
     if ($cod == '170') {
         echo ('<br><div class="alert alert-danger">');
         echo ('Dados não inseridos.');
