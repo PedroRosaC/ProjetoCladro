@@ -49,11 +49,12 @@ class sociaModel {
         $this->servicos = $servicos;
     }
     public function Autenticar($email, $senha) {
-        $sql = 'SELECT * FROM socia where email = "' . $email . '" and senha = "' . $senha . '" ';
+        $sql = 'SELECT * FROM socia where email = "' . $email . '" and senha = "' . md5($senha) . '" ';
         $db = new ConexaoMysql();
         $db->Conectar();
         $resultList = $db->Consultar($sql);
-        if ($db->total == 1) {
+        $total =$db->total;
+        if ($total==1) {
             foreach ($resultList as $data) {
                 $this->id = $data['id'];
                 $this->email = $data['email'];
@@ -100,13 +101,13 @@ class sociaModel {
         //Abrir conexão com banco de dados
         $db->Conectar();
         //Criar consulta
+        $this-> senha = md5($this->senha);
         $sql = 'INSERT INTO socia values'
                 . '(0,"' . $this->email . '",'
                 . '"' . $this->nome . '",'
                 . '"' . $this->senha . '",'
                 . '"' . $this->disponibilidade . '",'
                 . '"' . $this->servicos . '")';
-        echo $sql;
         //Executar método de inserção
         $db->Executar($sql);
         //Desconectar do banco
@@ -121,11 +122,10 @@ class sociaModel {
         $sql = 'UPDATE socia SET '
                 . 'email="' . $this->email . '",'
                 . 'nome="' . $this->nome . '",'
-                . 'senha="' . $this->senha . '",'
+                . 'senha="' .  md5($this->senha) . '",'
                 . 'endereco="' . $this->disponibilidade . '",'
                 . 'idade="' . $this->servicos . '",'
                 . 'WHERE id = ' . $this->id;
-        echo $sql;
         //Executar método de inserção
         $db->Executar($sql);
         //Desconectar do banco

@@ -1,33 +1,37 @@
 <?php
+
 if ($_POST) {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     @$nome = $_POST['nome'];
-    @$funcao =$_POST['funcao'];
+    @$funcao = $_POST['funcao'];
     require_once '../model/atendenteModel.php';
     $atendente = new atendenteModel();
-    if(isset($_POST['id'])){
+    if (isset($_POST['id'])) {
         $atendente->setId($_POST['id']);
         $atendente->setEmail($email);
         $atendente->setNome($nome);
         $atendente->setSenha($senha);
         $atendente->setFuncao($funcao);
         $atendente->update();
+        header('location:../index.php');
     } else {
-    $atendente->Autenticar($email,$senha); //retorna 0 ou 1  
+        $atendente->Autenticar($email, $senha);
     }
 } else if ($_REQUEST) {
     if (isset($_REQUEST)) {
         require_once './model/atendenteModel.php';
         @$id = $_REQUEST['id'];
         $atendente = new atendenteModel();
-        $atendente ->loadById($id);
+        $atendente->loadById($id);
     }
 }
+
 function loadById($id) {
     require_once '../model/atendenteModel.php';
     $atendente = new atendenteModel();
     $atendente->loadById($id);
     return $atendente;
 }
+
 ?>

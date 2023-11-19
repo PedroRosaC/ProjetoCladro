@@ -82,9 +82,9 @@ else {
     echo'<form method="POST" action="login.php">
         <div class="entrar">
         <h2>Que tipo de usuário é você?</h2>
-        <label><input type="radio" value="atendente" name="tipo" id="atendente"> Atendente</label><br>
-        <label><input type="radio" value="socia" name="tipo" id="socia"> Socia</label><br>
-        <label><input type="radio" value="paciente" name="tipo" id="paciente"> Paciente</label><br>
+        <label><input class="form-check-input" type="radio" value="atendente" name="tipo" id="atendente"> Atendente</label><br>
+        <label><input class="form-check-input" type="radio" value="socia" name="tipo" id="socia"> Socia</label><br>
+        <label><input class="form-check-input" type="radio" value="paciente" name="tipo" id="paciente"> Paciente</label><br>
         <input type="submit" class="submit">
         </div>
         </form>';

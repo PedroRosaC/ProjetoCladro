@@ -1,16 +1,17 @@
 <?php
+
 if ($_POST) {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     @$nome = $_POST['nome'];
-    @$endereco =$_POST['endereco'];
-    @$idade =$_POST['idade'];
-    @$data_nasc =$_POST['data_nasc'];
-    @$rg =$_POST['rg'];
-    @$cpf =$_POST['cpf'];
+    @$endereco = $_POST['endereco'];
+    @$idade = $_POST['idade'];
+    @$data_nasc = $_POST['data_nasc'];
+    @$rg = $_POST['rg'];
+    @$cpf = $_POST['cpf'];
     require_once '../model/pacienteModel.php';
     $paciente = new pacienteModel();
-    if(isset($_POST['id'])){
+    if (isset($_POST['id'])) {
         $paciente->setId($_POST['id']);
         $paciente->setEmail($email);
         $paciente->setNome($nome);
@@ -21,17 +22,19 @@ if ($_POST) {
         $paciente->setRg($rg);
         $paciente->setCpf($cpf);
         $paciente->update();
+        header('location:../index.php');
     } else {
-    $paciente->Autenticar($email,$senha); //retorna 0 ou 1  
+        $paciente->Autenticar($email, $senha);
     }
 } else if ($_REQUEST) {
     if (isset($_REQUEST)) {
         require_once './model/pacienteModel.php';
         @$id = $_REQUEST['id'];
         $paciente = new pacienteModel();
-        $paciente ->loadById($id);
+        $paciente->loadById($id);
     }
 }
+
 function loadById($id) {
     //Importo raças model
     require_once './model/pacienteModel.php';
@@ -41,4 +44,5 @@ function loadById($id) {
     $paciente->loadById($id);
     return $paciente;
 }
+
 ?>

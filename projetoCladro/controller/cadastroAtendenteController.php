@@ -11,7 +11,7 @@ if ($_POST) {
         $total = $atendente->insert();
         header('location:../cadastro.php?cod=172');
     } else {
-        header('location:../cadastro.php?cod=171');
+        header('location:../cadastro.php?cod=170');
     }
 } else {
     header('location:../index.php');
