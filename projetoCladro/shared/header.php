@@ -9,6 +9,7 @@
     <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="./img/epitelisLogo.png">
+    <link rel="stylesheet" href="css/sidebar.css">
     <title>Epitelis</title>
     <link rel="stylesheet" href="./css/estilo.css">
 </head>

@@ -1,0 +1,65 @@
+
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(39, 38, 38);
+  width:250px;
+  height:100%;
+  z-index:5;
+  position: fixed;
+  left:-250px;
+  margin-left: 0;
+  transition:all .3s;
+  border-right: 2px rgb(255, 0, 85) solid;
+}
+.whiteimg{
+  width: 25px;
+  height: 25px;
+  filter: invert(1);
+}
+
+.close{
+  margin: 50px 0 50px 190px;
+  width: 26px;
+  height: 26px;
+  background-color: rgb(100, 99, 99);
+  cursor:pointer;
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  border: 1px rgb(26, 25, 25) solid;
+}
+.itens{
+  width: 50px;
+  height: 50px;
+  padding: 10px 30px 0 ;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+.itens:hover{
+  background-color: rgb(255, 0, 85);
+}
+.a{
+  text-decoration: none;
+  color: blanchedalmond;
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+img .icon{
+  width: 25px;
+  height: 25px;
+}
+
+div .ativo{
+  background-color: rgb(255, 0, 85);
+}
+.open{
+  margin-top: 30px;
+  margin-left: 100px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(177, 177, 177);
+  border-radius: 3px;
+  border: 1px rgb(39, 38, 38) solid;
+}
