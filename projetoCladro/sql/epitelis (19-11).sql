@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 13-Nov-2023 às 13:57
+-- Tempo de geração: 20-Nov-2023 às 01:50
 -- Versão do servidor: 8.0.34
 -- versão do PHP: 8.0.26
 
@@ -31,10 +31,12 @@ DROP TABLE IF EXISTS `agenda`;
 CREATE TABLE IF NOT EXISTS `agenda` (
   `id` int NOT NULL AUTO_INCREMENT,
   `paciente_id` int NOT NULL,
-  `adm_id` int NOT NULL,
-  `data_hora` datetime NOT NULL,
-  PRIMARY KEY (`id`,`paciente_id`,`adm_id`),
-  KEY `fk_agenda_paciente1_idx` (`paciente_id`)
+  `data` date NOT NULL,
+  `hora` time NOT NULL,
+  `socia_id` int NOT NULL,
+  PRIMARY KEY (`id`,`paciente_id`,`socia_id`),
+  KEY `fk_agenda_paciente1_idx` (`paciente_id`),
+  KEY `fk_agenda_socia1_idx` (`socia_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -46,11 +48,11 @@ CREATE TABLE IF NOT EXISTS `agenda` (
 DROP TABLE IF EXISTS `atendente`;
 CREATE TABLE IF NOT EXISTS `atendente` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `senha` varchar(255) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(200) NOT NULL,
   `funcao` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`,`funcao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -62,14 +64,23 @@ CREATE TABLE IF NOT EXISTS `atendente` (
 DROP TABLE IF EXISTS `consulta`;
 CREATE TABLE IF NOT EXISTS `consulta` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `data_hora` datetime NOT NULL,
+  `data` date NOT NULL,
+  `time` time NOT NULL,
   `servico` varchar(100) NOT NULL,
   `valor` float NOT NULL,
-  `estoque` float NOT NULL,
-  `paciente_id` int NOT NULL,
-  PRIMARY KEY (`id`,`paciente_id`),
-  KEY `fk_consulta_paciente1_idx` (`paciente_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `paciente_nome` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`,`paciente_nome`),
+  KEY `fk_consulta_paciente1_idx` (`paciente_nome`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `consulta`
+--
+
+INSERT INTO `consulta` (`id`, `data`, `time`, `servico`, `valor`, `paciente_nome`) VALUES
+(0, '2022-11-20', '00:00:00', 'podologiax', 857, 'klara'),
+(3, '2023-11-01', '14:49:00', 'podologiax', 785.25, 'klara'),
+(4, '2023-11-01', '23:50:00', 'podologiax', 785.25, 'klara');
 
 -- --------------------------------------------------------
 
@@ -82,7 +93,11 @@ CREATE TABLE IF NOT EXISTS `conteudo` (
   `id` int NOT NULL AUTO_INCREMENT,
   `link` varchar(400) NOT NULL,
   `adm_id` int NOT NULL,
-  PRIMARY KEY (`id`,`adm_id`)
+  `atendente_id` int NOT NULL,
+  `socia_id` int NOT NULL,
+  PRIMARY KEY (`id`,`adm_id`,`atendente_id`,`socia_id`),
+  KEY `fk_conteudo_atendente1_idx` (`atendente_id`),
+  KEY `fk_conteudo_socia1_idx` (`socia_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -151,7 +166,11 @@ DROP TABLE IF EXISTS `faturamento`;
 CREATE TABLE IF NOT EXISTS `faturamento` (
   `id` int NOT NULL AUTO_INCREMENT,
   `valor_total` int NOT NULL,
-  PRIMARY KEY (`id`)
+  `ganhos_id` int NOT NULL,
+  `despesas_id` int NOT NULL,
+  PRIMARY KEY (`id`,`ganhos_id`,`despesas_id`),
+  KEY `fk_faturamento_ganhos1_idx` (`ganhos_id`),
+  KEY `fk_faturamento_despesas1_idx` (`despesas_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -196,24 +215,23 @@ CREATE TABLE IF NOT EXISTS `item` (
 DROP TABLE IF EXISTS `paciente`;
 CREATE TABLE IF NOT EXISTS `paciente` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `senha` varchar(255) NOT NULL,
-  `endereco` varchar(90) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(200) NOT NULL,
+  `endereco` varchar(200) NOT NULL,
   `idade` int NOT NULL,
   `data_nasc` date NOT NULL,
   `rg` int NOT NULL,
   `cpf` int NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`,`nome`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Extraindo dados da tabela `paciente`
 --
 
-INSERT INTO `paciente` (`id`, `email`, `nome`, `senha`, `endereco`, `idade`, `data_nasc`, `rg`, `cpf`) VALUES
-(1, 'CACETE@CACETE', 'josane', 'carmen', 'AV EUCLIDES KLIEMANN', 87, '2023-11-05', 8567, 857),
-(13, 'oi@oi', 'klara', 'vida', 'AV EUCLIDES KLIEMANN,598', -4, '2023-10-29', 874151, 5879);
+INSERT INTO `paciente` (`id`, `nome`, `email`, `senha`, `endereco`, `idade`, `data_nasc`, `rg`, `cpf`) VALUES
+(19, 'klara', 'oi@oi', '74574f42cc1bdf7b79e0476facf32fe0', 'AV EUCLIDES KLIEMANN,598', 85, '2023-11-01', 4545, 785);
 
 -- --------------------------------------------------------
 
@@ -260,12 +278,36 @@ CREATE TABLE IF NOT EXISTS `receita` (
 DROP TABLE IF EXISTS `socia`;
 CREATE TABLE IF NOT EXISTS `socia` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) NOT NULL,
-  `nome` varchar(255) NOT NULL,
-  `senha` varchar(255) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(200) NOT NULL,
   `disponibilidade` varchar(45) NOT NULL,
   `servicos` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `socia`
+--
+
+INSERT INTO `socia` (`id`, `nome`, `email`, `senha`, `disponibilidade`, `servicos`) VALUES
+(0, 'ADM', 'ADM@ADM', 'ADM', 'sempre', 'PODOX');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `solicitarconsulta`
+--
+
+DROP TABLE IF EXISTS `solicitarconsulta`;
+CREATE TABLE IF NOT EXISTS `solicitarconsulta` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `data` date NOT NULL,
+  `hora` time NOT NULL,
+  `servico` varchar(100) NOT NULL,
+  `paciente_id` int NOT NULL,
+  PRIMARY KEY (`id`,`paciente_id`),
+  KEY `fk_solicitarConsulta_paciente1_idx` (`paciente_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -276,13 +318,15 @@ CREATE TABLE IF NOT EXISTS `socia` (
 -- Limitadores para a tabela `agenda`
 --
 ALTER TABLE `agenda`
-  ADD CONSTRAINT `fk_agenda_paciente1` FOREIGN KEY (`paciente_id`) REFERENCES `paciente` (`id`);
+  ADD CONSTRAINT `fk_agenda_paciente1` FOREIGN KEY (`paciente_id`) REFERENCES `paciente` (`id`),
+  ADD CONSTRAINT `fk_agenda_socia1` FOREIGN KEY (`socia_id`) REFERENCES `socia` (`id`);
 
 --
--- Limitadores para a tabela `consulta`
+-- Limitadores para a tabela `conteudo`
 --
-ALTER TABLE `consulta`
-  ADD CONSTRAINT `fk_consulta_paciente1` FOREIGN KEY (`paciente_id`) REFERENCES `paciente` (`id`);
+ALTER TABLE `conteudo`
+  ADD CONSTRAINT `fk_conteudo_atendente1` FOREIGN KEY (`atendente_id`) REFERENCES `atendente` (`id`),
+  ADD CONSTRAINT `fk_conteudo_socia1` FOREIGN KEY (`socia_id`) REFERENCES `socia` (`id`);
 
 --
 -- Limitadores para a tabela `despesas`
@@ -296,6 +340,13 @@ ALTER TABLE `despesas`
 ALTER TABLE `estoque_has_consulta`
   ADD CONSTRAINT `fk_estoque_has_consulta_consulta1` FOREIGN KEY (`consulta_id`) REFERENCES `consulta` (`id`),
   ADD CONSTRAINT `fk_estoque_has_consulta_estoque1` FOREIGN KEY (`estoque_id`) REFERENCES `estoque` (`id`);
+
+--
+-- Limitadores para a tabela `faturamento`
+--
+ALTER TABLE `faturamento`
+  ADD CONSTRAINT `fk_faturamento_despesas1` FOREIGN KEY (`despesas_id`) REFERENCES `despesas` (`id`),
+  ADD CONSTRAINT `fk_faturamento_ganhos1` FOREIGN KEY (`ganhos_id`) REFERENCES `ganhos` (`id`);
 
 --
 -- Limitadores para a tabela `ganhos`
@@ -322,6 +373,12 @@ ALTER TABLE `prontuario`
 ALTER TABLE `receita`
   ADD CONSTRAINT `fk_receita_consulta1` FOREIGN KEY (`consulta_id`) REFERENCES `consulta` (`id`),
   ADD CONSTRAINT `fk_receita_socia1` FOREIGN KEY (`socia_id`) REFERENCES `socia` (`id`);
+
+--
+-- Limitadores para a tabela `solicitarconsulta`
+--
+ALTER TABLE `solicitarconsulta`
+  ADD CONSTRAINT `fk_solicitarConsulta_paciente1` FOREIGN KEY (`paciente_id`) REFERENCES `paciente` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

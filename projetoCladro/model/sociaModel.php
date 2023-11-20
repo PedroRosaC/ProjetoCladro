@@ -49,7 +49,7 @@ class sociaModel {
         $this->servicos = $servicos;
     }
     public function Autenticar($email, $senha) {
-        $sql = 'SELECT * FROM socia where email = "' . $email . '" and senha = "' . md5($senha) . '" ';
+        $sql = 'SELECT * FROM socia where email = "' . $email . '" and senha = "' . $senha . '" ';
         $db = new ConexaoMysql();
         $db->Conectar();
         $resultList = $db->Consultar($sql);
@@ -60,7 +60,7 @@ class sociaModel {
                 $this->email = $data['email'];
             }
             @session_start();
-            $_SESSION['ADM']= $this->nome;
+            $_SESSION['user'] = 'socia';
             $_SESSION['id'] = $this->id;
             $_SESSION['login'] = $this->email;
             header('location:../index.php');

@@ -10,9 +10,9 @@ if ($_POST) {
     $socia->setServicos($_POST['servicos']);
     if (!empty($_POST['email']) && !empty($_POST['nome']) && !empty($_POST['senha']) && !empty($_POST['disponibilidade']) && !empty($_POST['servicos'])) {
         $total = $socia->insert();
-        header('location:../cadastro.php?cod=172');
+        header('location:../cadastroADM.php?cod=172');
     } else {
-        header('location:../cadastro.php?cod=170');
+        header('location:../cadastroADM.php?cod=170');
     }
 } else {
     header('location:../index.php');

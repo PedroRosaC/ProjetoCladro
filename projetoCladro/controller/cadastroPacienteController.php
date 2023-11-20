@@ -13,9 +13,9 @@ if ($_POST) {
     $paciente->setCpf($_POST['cpf']);
     if (!empty($_POST['email']) && !empty($_POST['nome']) && !empty($_POST['senha']) && !empty($_POST['endereco']) && !empty($_POST['idade']) && !empty($_POST['data_nasc']) && !empty($_POST['rg']) && !empty($_POST['cpf'])) {
         $total = $paciente->insert();
-        header('location:../cadastro.php?cod=172');
+        header('location:../cadastroADM.php?cod=172');
     } else {
-        header('location:../cadastro.php?cod=170');
+        header('location:../cadastroADM.php?cod=170');
     }
 } else {
     header('location:../index.php');

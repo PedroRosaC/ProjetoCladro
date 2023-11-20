@@ -1,12 +1,6 @@
 <?php
 require_once './shared/header.php';
 ?>
-<header>
-    <a href="index.php"><img src="img/logo.png" class="logo"></a>
-    <ul class="menu">
-        <li><b><a href="login.php">Entrar</a></b></li>
-    </ul>
-</header>
 <?php
 if ($_REQUEST) {
     @$tipo = $_POST['tipo'];
@@ -110,7 +104,7 @@ if ($_REQUEST) {
         }
     }
 } else {
-    echo '<form method="POST" action="cadastro.php">
+    echo '<form method="POST" action="cadastroADM.php">
         <div class="entrar">
         <h2>Que tipo de usuário é você?</h2>
         <label><input class="form-check-input" type="radio" value="atendente" name="tipo" id="atendente"> Atendente</label><br>

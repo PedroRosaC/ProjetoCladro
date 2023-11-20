@@ -82,6 +82,7 @@ class pacienteModel {
                 $this->email = $data['email'];
             }
             @session_start();
+            $_SESSION['user'] = 'pct';
             $_SESSION['id'] = $this->id;
             $_SESSION['login'] = $this->email;
             header('location:../index.php');

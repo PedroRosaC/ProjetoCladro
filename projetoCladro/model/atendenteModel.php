@@ -51,7 +51,7 @@ class atendenteModel{
                 $this->email = $data['email'];
             }
             @session_start();
-            $_SESSION['ADM']= $this->nome;
+            $_SESSION['user'] = 'atendente';
             $_SESSION['id'] = $this->id;
             $_SESSION['login'] = $this->email;
             header('location:../index.php');

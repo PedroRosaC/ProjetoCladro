@@ -1,20 +1,6 @@
 <?php
 require_once './shared/header.php'
 ?>
-<header>
-
-    <a href="index.php"><img src="img/logo.png" class="logo"></a>
-
-    <ul class="menu">
-        <li>
-            <b><a href="cadastro.php?pg=1&&id=<?php
-                @session_start();
-                echo @$_SESSION['id'];
-                ?>">Alterar Cadastro do Paciente</a></b>
-        </li>
-        <li><b><a href="cadastro.php">Cadastrar</a></b></li>
-    </ul>
-</header>
 <?php
 if ($_POST) {
     @$tipo = $_POST['tipo'];
@@ -57,7 +43,8 @@ if ($_POST) {
         }
         echo '</div>';
         echo '</div> </form>';
-    }if ($tipo == 'atendente') {
+    }
+    if ($tipo == 'atendente') {
         echo '<form method = "POST" action = "controller/loginAtendenteController.php">';
         echo '<div class = "entrar">';
         echo '<h3>E-mail:</h3>';
