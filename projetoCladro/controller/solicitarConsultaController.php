@@ -7,6 +7,7 @@ if ($_POST) {
     $consulta->setData($_POST['data']);
     $consulta->setHora($_POST['hora']);
     $consulta->setServico($_POST['servico']);
+    $consulta->setPaciente_id($_POST['paciente_id']);
     if (!empty($_POST['data']) && !empty($_POST['hora']) && !empty($_POST['servico'])) {
         $total = $consulta->insert();
         header('location:../solicitaRConsulta.php?cod=172');

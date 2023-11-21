@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 20-Nov-2023 às 01:50
+-- Tempo de geração: 21-Nov-2023 às 14:21
 -- Versão do servidor: 8.0.34
 -- versão do PHP: 8.0.26
 
@@ -65,22 +65,12 @@ DROP TABLE IF EXISTS `consulta`;
 CREATE TABLE IF NOT EXISTS `consulta` (
   `id` int NOT NULL AUTO_INCREMENT,
   `data` date NOT NULL,
-  `time` time NOT NULL,
+  `hora` time NOT NULL,
   `servico` varchar(100) NOT NULL,
   `valor` float NOT NULL,
-  `paciente_nome` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`,`paciente_nome`),
-  KEY `fk_consulta_paciente1_idx` (`paciente_nome`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Extraindo dados da tabela `consulta`
---
-
-INSERT INTO `consulta` (`id`, `data`, `time`, `servico`, `valor`, `paciente_nome`) VALUES
-(0, '2022-11-20', '00:00:00', 'podologiax', 857, 'klara'),
-(3, '2023-11-01', '14:49:00', 'podologiax', 785.25, 'klara'),
-(4, '2023-11-01', '23:50:00', 'podologiax', 785.25, 'klara');
+  `estoque` tinyint NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -139,8 +129,8 @@ CREATE TABLE IF NOT EXISTS `estoque_has_consulta` (
   `estoque_id` int NOT NULL,
   `consulta_id` int NOT NULL,
   PRIMARY KEY (`estoque_id`,`consulta_id`),
-  KEY `fk_estoque_has_consulta_consulta1_idx` (`consulta_id`),
-  KEY `fk_estoque_has_consulta_estoque1_idx` (`estoque_id`)
+  KEY `fk_estoque_has_consulta_estoque1_idx` (`estoque_id`),
+  KEY `fk_estoque_has_consulta_consulta1_idx` (`consulta_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -248,8 +238,8 @@ CREATE TABLE IF NOT EXISTS `prontuario` (
   `consulta_id` int NOT NULL,
   `exames_id` int NOT NULL,
   PRIMARY KEY (`id`,`consulta_id`,`exames_id`),
-  KEY `fk_prontuario_consulta1_idx` (`consulta_id`),
-  KEY `fk_prontuario_exames1_idx` (`exames_id`)
+  KEY `fk_prontuario_exames1_idx` (`exames_id`),
+  KEY `fk_prontuario_consulta1_idx` (`consulta_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -302,13 +292,31 @@ INSERT INTO `socia` (`id`, `nome`, `email`, `senha`, `disponibilidade`, `servico
 DROP TABLE IF EXISTS `solicitarconsulta`;
 CREATE TABLE IF NOT EXISTS `solicitarconsulta` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `paciente_id` int NOT NULL,
   `data` date NOT NULL,
   `hora` time NOT NULL,
   `servico` varchar(100) NOT NULL,
-  `paciente_id` int NOT NULL,
+  `data_aprov` date DEFAULT NULL,
+  `situacao` tinyint NOT NULL,
+  `socia_id` int DEFAULT NULL,
+  `atendente_id` int DEFAULT NULL,
   PRIMARY KEY (`id`,`paciente_id`),
-  KEY `fk_solicitarConsulta_paciente1_idx` (`paciente_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk_solicitarConsulta_paciente1_idx` (`paciente_id`),
+  KEY `fk_solicitarConsulta_socia1_idx` (`socia_id`),
+  KEY `fk_solicitarConsulta_atendente1_idx` (`atendente_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `solicitarconsulta`
+--
+
+INSERT INTO `solicitarconsulta` (`id`, `paciente_id`, `data`, `hora`, `servico`, `data_aprov`, `situacao`, `socia_id`, `atendente_id`) VALUES
+(0, 19, '2023-11-11', '22:25:00', 'podi', NULL, 0, NULL, NULL),
+(1, 19, '2023-11-11', '22:25:00', 'podi', NULL, 0, NULL, NULL),
+(3, 19, '2023-11-11', '22:54:00', 'podologia', NULL, 0, NULL, NULL),
+(4, 19, '2023-11-08', '20:58:00', 'podologiax', NULL, 0, NULL, NULL),
+(5, 19, '2023-11-15', '21:04:00', 'podologiax', NULL, 0, NULL, NULL),
+(6, 19, '2023-11-15', '21:04:00', 'podologiax', NULL, 0, NULL, NULL);
 
 --
 -- Restrições para despejos de tabelas
@@ -378,7 +386,9 @@ ALTER TABLE `receita`
 -- Limitadores para a tabela `solicitarconsulta`
 --
 ALTER TABLE `solicitarconsulta`
-  ADD CONSTRAINT `fk_solicitarConsulta_paciente1` FOREIGN KEY (`paciente_id`) REFERENCES `paciente` (`id`);
+  ADD CONSTRAINT `fk_solicitarConsulta_atendente1` FOREIGN KEY (`atendente_id`) REFERENCES `atendente` (`id`),
+  ADD CONSTRAINT `fk_solicitarConsulta_paciente1` FOREIGN KEY (`paciente_id`) REFERENCES `paciente` (`id`),
+  ADD CONSTRAINT `fk_solicitarConsulta_socia1` FOREIGN KEY (`socia_id`) REFERENCES `socia` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

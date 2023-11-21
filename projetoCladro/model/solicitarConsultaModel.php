@@ -49,14 +49,13 @@ class solicitarConsultaModel {
         //Abrir conexão com banco de dados
         $db->Conectar();
         //Criar consulta
-        @session_start();
-        $this->paciente_id = $_SESSION['id'];
-        $sql = 'INSERT INTO consulta values'
+        $sql = 'INSERT INTO solicitarconsulta values'
                 . '(0,"' . $this->data . '",'
                 . '"' . $this->hora . '",'
                 . '"' . $this->servico . '",'
-                . '"' . $this->paciente_id . '")';
+                . '' . $this->paciente_id . ')';
         //Executar método de inserção
+        echo $sql;
         $db->Executar($sql);
         //Desconectar do banco
         $db->Desconectar();
