@@ -43,15 +43,16 @@
                             <img src="img/X.png" class="close-btn whiteimg" onclick="fechar()">
                         </div>
                         <a class="a" href="solicitarConsulta.php">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="a">Solicitar Consulta</a>
+                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Solicitar Consulta
+                            </div>
+                        </a>
+                        
+                        <a class="a" href="#">
+                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Home
                             </div>
                         </a>
                         <a class="a" href="#">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="a">Home</a>
-                            </div>
-                        </a>
-                        <a class="a" href="#">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"> <a class="a">Perfil</a>
+                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"> <a class="a">Perfil
                             </div>
                         </a>
                     </div>';
@@ -64,19 +65,19 @@
                         <a class="a" href="cadastroADM.php?pg=1&&id=
                         "' . @session_start();
                     echo @$_SESSION['id'] . '">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="a">Alterar cadastro PCT</a>
+                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Alterar cadastro PCT
                     </div>
                 </a>
                 <a class="a" href="cadastroADM.php">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="a"> Cadastro</a>
+                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Cadastro
                     </div>
                 </a>
                 <a class="a" href="financeiroADM.php">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="a"> Financeiro</a>
+                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Financeiro
                     </div>
                 </a>
                 <a class="a" href="consultaADM.php">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="a"> Criar Consulta
+                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Criar Consulta
                     </div>
                 </a>
             </div>';
@@ -89,15 +90,15 @@
                         <a class="a" href="cadastroADM.php?pg=1&&id=
                         "' . @session_start();
                     echo @$_SESSION['id'] . '">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="a">Alterar cadastro PCT</a>
+                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Alterar cadastro PCT
                             </div>
                         </a>
                         <a class="a" href="CadastroADM.php">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="a">Cadastro</a>
+                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Cadastro
                             </div>
                         </a>
                         <a class="a" href="consultaADM.php">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="a"> Criar Consulta
+                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Criar Consulta
                             </div>
                         </a>
                     </div>';

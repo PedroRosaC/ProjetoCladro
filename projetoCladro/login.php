@@ -76,7 +76,9 @@ else {
         </div>
         </form>';
 }
+
 ?>
+<br><br><br>
 <?php
 require_once './shared/footer.php'
 ?>

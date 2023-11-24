@@ -34,6 +34,7 @@
   padding: 10px 0 0 10px;
   display: flex;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 .itens:hover{

@@ -40,7 +40,7 @@ header {
     display: flex;
 }
 .footer{
-    position: fixed; 
+    
     bottom: 0;
     color: #dfdcdc;
     padding-top: 20px;
@@ -186,8 +186,7 @@ table{
 }
 .tabela{
     background-color: #ff98a0;
-    align-items: center;
-    margin: 30px auto;
+    margin: 30px auto 150px;
     width: fit-content;
     height: fit-content;
     border: 3px #e27f88;
@@ -197,8 +196,11 @@ table{
 
 }
 .tabelaitens{
-    border: 1px #e24b73 double;
+    border: 1px #e24b73 solid;
     padding: 10px;
+    width: 110px;
+    height: 60px;
+
 
 }
 th{
