@@ -61,7 +61,7 @@ class sociaModel {
             }
             @session_start();
             $_SESSION['user'] = 'socia';
-            $_SESSION['id'] = $this->id;
+            $_SESSION['ADM'] = $this->id;
             $_SESSION['login'] = $this->email;
             header('location:../index.php');
         } else {

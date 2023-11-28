@@ -84,7 +84,7 @@ class pacienteModel {
             @session_start();
             $_SESSION['user'] = 'pct';
             $_SESSION['id'] = $this->id;
-            $_SESSION['login'] = $this->email;
+            $_SESSION['nome'] = $this->nome;
             header('location:../index.php');
         } else {
             header('location:../login.php?cod=171');

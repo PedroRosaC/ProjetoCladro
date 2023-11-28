@@ -81,7 +81,19 @@ p{
     border-radius: 5px;
     
 }
-
+.checkBox{
+    margin-top: 5px;
+}
+.check{
+    displaly: flex;
+    flex-direction: row;   
+}
+.checkb{
+    margin-right: 50px;
+}
+.checkb2{
+    margin-left: 12px;
+}
 .logo {
     width: 150px;
     height: 60px;

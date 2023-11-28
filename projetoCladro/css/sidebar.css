@@ -50,9 +50,11 @@
 .a:hover{
   color: white;
 }
-a .textp{
-  margin-bottom: 10px;
-
+ .text{
+  margin-left: 10px;
+  text-decoration: none;
+  color:white;
+  font-size: 20px;
 }
 img .icon{
   width: 20px;

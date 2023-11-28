@@ -76,6 +76,26 @@ else {
         </div>
         </form>';
 }
+echo '<div style="
+    margin: 30px auto;
+    width: 350px;
+    align-content: center;">';
+echo '<div class="d-grid">';
+@$cod = $_REQUEST['cod'];
+if (isset($cod)) {
+    if ($cod == '170') {
+        echo ('<br><div class="alert alert-danger">');
+        echo ('Dados não inseridos.');
+        echo ('</div>');
+    }
+    if ($cod == '172') {
+        echo ('<br><div class="alert alert-success">');
+        echo ('Dados inseridos com sucesso');
+        echo ('</div>');
+    }
+}
+echo '</div>';
+echo '</div>';
 
 ?>
 <br><br><br>

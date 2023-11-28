@@ -2,10 +2,10 @@
 <html>
 
     <head>
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+        <script src="js/jquery-3.7.1.min.js" type="text/javascript"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
         <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
-        <script src="js/jquery-3.7.0.min.js" type="text/javascript"></script>
         <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
         <meta charset="UTF-8">
         <link rel="shortcut icon" href="./img/epitelisLogo.png">
@@ -43,16 +43,16 @@
                             <img src="img/X.png" class="close-btn whiteimg" onclick="fechar()">
                         </div>
                         <a class="a" href="solicitarConsulta.php">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Solicitar Consulta
+                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="text">Solicitar Consulta</a>
                             </div>
                         </a>
                         
-                        <a class="a" href="#">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Home
+                        <a class="a" href="index.php">
+                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="text">Home</a>
                             </div>
                         </a>
                         <a class="a" href="#">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"> <a class="a">Perfil
+                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="text">Perfil</a>
                             </div>
                         </a>
                     </div>';
@@ -65,19 +65,23 @@
                         <a class="a" href="cadastroADM.php?pg=1&&id=
                         "' . @session_start();
                     echo @$_SESSION['id'] . '">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Alterar cadastro PCT
+                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Alterar Cadastro PCT</a>
                     </div>
                 </a>
                 <a class="a" href="cadastroADM.php">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Cadastro
+                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Cadastro</a>
                     </div>
                 </a>
                 <a class="a" href="financeiroADM.php">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Financeiro
+                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Financeiro</a>
                     </div>
                 </a>
                 <a class="a" href="consultaADM.php">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Criar Consulta
+                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Criar Consulta</a>
+                    </div>
+                </a>
+                <a class="a" href="solicitarConsulta.php">
+                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Consultas Solicitadas</a>
                     </div>
                 </a>
             </div>';
@@ -99,6 +103,10 @@
                         </a>
                         <a class="a" href="consultaADM.php">
                             <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Criar Consulta
+                            </div>
+                        </a>  
+                        <a class="a" href="solicitarConsulta.php">
+                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">consultas Solicitadas
                             </div>
                         </a>
                     </div>';
