@@ -1,7 +1,8 @@
 <?php
-
+require_once './controller/autenticationController.php';
 require_once './shared/header.php';
 ?>
+
 <?php
 
 echo '<div style="
@@ -12,13 +13,23 @@ echo '<div class="d-grid">';
 @$cod = $_REQUEST['cod'];
 if (isset($cod)) {
     if ($cod == '170') {
-        echo ('<br><div class="alert alert-danger">');
-        echo ('Dados não inseridos.');
-        echo ('</div>');
-    }
-    if ($cod == '172') {
         echo ('<br><div class="alert alert-success">');
-        echo ('Dados inseridos com sucesso');
+        echo ('Dados inseridos.');
+        echo ('</div>');
+    }if (isset($cod)) {
+            if ($cod == '171') {
+                echo ('<br><div class = "alert alert-danger">');
+                echo ('Verifique usuário ou senha.');
+                echo ('</div>');
+            }
+        }
+    if ($cod == '172') {
+        echo ('<br><div class="alert alert-danger">');
+        echo ('Sua sessão expirou, entre novamente!');
+        echo ('</div>');
+    }if ($cod == '173') {
+        echo ('<br><div class="alert alert-danger">');
+        echo ('Verifique os dados e tente novamente!');
         echo ('</div>');
     }
 }
@@ -28,7 +39,6 @@ echo '</div>';
 <?php
 
 @session_start();
-//$s_n = $_POST['checkbox'];
 if (@$_SESSION['user'] == 'pct') {
     echo ' <div class="entrar entrar2">
     <form method="POST" action="controller/solicitarConsultaController.php">
@@ -45,7 +55,6 @@ if (@$_SESSION['user'] == 'pct') {
     </form>
 </div>';
 }
-//if ($s_n == '0') {
 if (@$_SESSION['user'] == 'socia' || @$_SESSION['user'] == 'atendente') {
     require_once 'solicitarConsulta.php';
     echo '<div class=" form-switch entrar entrar2" style="width: 800px">
@@ -61,17 +70,18 @@ if (@$_SESSION['user'] == 'socia' || @$_SESSION['user'] == 'atendente') {
 </div>';
     @$check = $_GET['checkbox'];
     if ($check == 1) {
-        require_once './controller/solicitarConsultaController.php';
+        require_once './controller/procurarControlle.php';
         $solicitarList = loadAll1S();
         $solicitarLista = loadAll1A();
         echo '<div class="tabela table-bordered">
         <table>
         <tr>
-            <th>Nome</th>
+            <th>Nome do Paciente</th>
             <th>Data</th>
             <th>Horário</th>
             <th>Serviço</th>
-            <th></th>
+            <th>Quem Aprovou</th>
+            <th>Data Aprovação</th>
         </tr>';
         foreach ($solicitarList as $solicitar) {
             echo '<tr>';
@@ -87,8 +97,14 @@ if (@$_SESSION['user'] == 'socia' || @$_SESSION['user'] == 'atendente') {
             echo '<td class="tabelaitens">';
             echo $solicitar['servico'];
             echo '</td>';
+            echo '<td class="tabelaitens">';
+            echo $solicitar['nome'];
+            echo '</td>';
+            echo '<td class="tabelaitens">';
+            echo $solicitar['data_aprov'];
+            echo '</td>';
             echo '</tr>';
-        }foreach ($solicitarLista as $solicitar) {
+        } foreach ($solicitarLista as $solicitar) {
             echo '<tr>';
             echo '<td class="tabelaitens">';
             echo $solicitar['nome'];
@@ -102,11 +118,16 @@ if (@$_SESSION['user'] == 'socia' || @$_SESSION['user'] == 'atendente') {
             echo '<td class="tabelaitens">';
             echo $solicitar['servico'];
             echo '</td>';
+            echo '<td class="tabelaitens">';
+            echo $solicitar['nome'];
+            echo '</td>';
+            echo '<td class="tabelaitens">';
+            echo $solicitar['data_aprov'];
+            echo '</td>';
             echo '</tr>';
         }
     } else {
-        require_once './controller/solicitarConsultaController.php';
-        if (empty(loadAll0())) {
+        require_once './controller/procurarControlle.php';
             $solicitarlist = loadAll0();
             echo '<div class="tabela">
         <table>
@@ -139,19 +160,7 @@ if (@$_SESSION['user'] == 'socia' || @$_SESSION['user'] == 'atendente') {
                 echo '</td>';
                 echo '</tr>';
             }
-        } else {
-            echo '<div style="
-    margin: 30px auto;
-    width: 350px;
-    align-content: center;">';
-            echo '<div class="d-grid">';
-            echo '<br><div class="alert alert-success">';
-            echo 'Não há consultas para aprovar!';
-            echo '</div>';
-            echo '</div>';
-            echo '</div>';
         }
-    }
     echo '</table></div>';
 }
 ?>

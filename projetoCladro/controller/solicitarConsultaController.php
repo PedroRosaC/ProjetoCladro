@@ -9,31 +9,32 @@ if ($_POST) {
     $consulta->setPaciente_id($_POST['paciente_id']);
     if (!empty($_POST['data']) && !empty($_POST['hora']) && !empty($_POST['servico'])) {
         $total = $consulta->insert();
-        header('location:../solicitarConsulta.php?cod=172');
+       header('location:../solicitarConsulta.php?cod=170');
     } else {
-        header('location:../solicitarConsulta.php?cod=170');
+        header('location:../solicitarConsulta.php?cod=173');
     }
-} else {
-    loadAll0();
-}
+} 
 if ($_REQUEST) {
     if (isset($_REQUEST['cod']) && $_REQUEST['cod'] == 'aprov') {
-        //Importa a model        
-
         require_once '../model/solicitarConsultaModel.php';
         //Cria o objeto racas
         $solicitar = new solicitarConsultaModel();
         //Se o comando for par excluir
-        if (isset($_REQUEST['id']) && !empty($_REQUEST['id'])) {
+        if (isset($_REQUEST['id'])) {
             //configuro o id
+            
             session_start();
             if ($_SESSION['user'] == 'socia') {
+                echo 'tem socia';
                 require_once '../model/sociaModel.php';
                 @$socia_id = $_SESSION['ADM'];
+                echo $socia_id;
             }
             if ($_SESSION['user'] == 'atendente') {
+                echo 'tem atendente';
                 require_once '../model/atendenteModel.php';
                 @$atendente_id = $_SESSION['ADM'];
+                
             }
             $solicitar->setId($_REQUEST['id']);
             $solicitar->setData_aprov($_REQUEST['data_aprov']);
@@ -43,29 +44,11 @@ if ($_REQUEST) {
             $total = $solicitar->aprovar();
             echo $total;
             if ($total == 1) {
-                //header('location:../solicitarConsulta.php?cod=172');
+                header('location:../solicitarConsulta.php?cod=170');
             } else {
-                //header('location:../solicitarConsulta.php?cod=170');
+                header('location:../solicitarConsulta.php?cod=171');
             }
         }
     }
 }
 
-function loadAll0() {
-    require_once './model/solicitarConsultaModel.php';
-    $solicitar = new solicitarConsultaModel();
-    $solicitarlist = $solicitar->loadAll0();
-    return $solicitarlist;
-}
-function loadAll1S() {
-    require_once './model/solicitarConsultaModel.php';
-    $solicitar = new solicitarConsultaModel();
-    $solicitarList = $solicitar->loadAll1S();
-    return $solicitarList;
-}
-function loadAll1A() {
-    require_once './model/solicitarConsultaModel.php';
-    $solicitar = new solicitarConsultaModel();
-    $solicitarList = $solicitar->loadAll1A();
-    return $solicitarList;
-}

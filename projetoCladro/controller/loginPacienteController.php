@@ -22,7 +22,6 @@ if ($_POST) {
         $paciente->setRg($rg);
         $paciente->setCpf($cpf);
         $paciente->update();
-        header('location:../index.php');
     } else {
         $paciente->Autenticar($email, $senha);
     }
@@ -38,7 +37,6 @@ if ($_POST) {
 function loadById($id) {
     //Importo raças model
     require_once './model/pacienteModel.php';
-    //Crio um objeto do tipo raças
     $paciente = new pacienteModel();
     //Executa o método para carregar por id
     $paciente->loadById($id);

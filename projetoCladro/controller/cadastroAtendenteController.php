@@ -9,9 +9,9 @@ if ($_POST) {
     $atendente->setFuncao($_POST['funcao']);
     if (!empty($_POST['email']) && !empty($_POST['nome']) && !empty($_POST['senha']) && !empty($_POST['funcao'])) {
         $total = $atendente->insert();
-        header('location:../cadastroADM.php?cod=172');
-    } else {
         header('location:../cadastroADM.php?cod=170');
+    } else {
+        header('location:../cadastroADM.php?cod=173');
     }
 } else {
     header('location:../index.php');

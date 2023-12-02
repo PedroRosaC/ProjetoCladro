@@ -76,6 +76,9 @@ class pacienteModel {
         $db->Conectar();
         $resultList = $db->Consultar($sql);
         $total =$db->total;
+        
+        echo $total;
+        echo $sql;
         if ($total==1) {
             foreach ($resultList as $data) {
                 $this->id = $data['id'];
@@ -85,9 +88,10 @@ class pacienteModel {
             $_SESSION['user'] = 'pct';
             $_SESSION['id'] = $this->id;
             $_SESSION['nome'] = $this->nome;
+            $_SESSION['login'] = $this->nome;
             header('location:../index.php');
         } else {
-            header('location:../login.php?cod=171');
+           header('location:../login.php?cod=171');
         }
         $db->Desconectar();
         return $resultList;
@@ -128,8 +132,8 @@ class pacienteModel {
         //Criar consulta
         $this-> senha = md5($this->senha);
         $sql = 'INSERT INTO paciente values'
-                . '(0,"' . $this->email . '",'
-                . '"' . $this->nome . '",'
+                . '(0,"' . $this->nome . '",'
+                . '"' . $this->email . '",'
                 . '"' . $this->senha . '",'
                 . '"' . $this->endereco . '",'
                 . '"' . $this->idade . '",'
@@ -157,6 +161,7 @@ class pacienteModel {
                 . 'rg="' . $this->rg . '",'
                 . 'cpf ="' . $this->cpf . '"'
                 . 'WHERE id = ' . $this->id;
+        header('location:../cadastroADM.php?cod=170');
         //Executar método de inserção
         $db->Executar($sql);
         //Desconectar do banco

@@ -49,7 +49,7 @@ class sociaModel {
         $this->servicos = $servicos;
     }
     public function Autenticar($email, $senha) {
-        $sql = 'SELECT * FROM socia where email = "' . $email . '" and senha = "' . $senha . '" ';
+        $sql = 'SELECT * FROM socia where email = "' . $email . '" and senha = "' . md5($senha) . '" ';
         $db = new ConexaoMysql();
         $db->Conectar();
         $resultList = $db->Consultar($sql);
@@ -85,7 +85,7 @@ class sociaModel {
             foreach ($resultList as $value) {
                 $this->id = $value['id'];
                 $this->email = $value['email'];
-                $this->nome = $value['nome'];
+                $this->nome = $value['nomes'];
                 $this->senha = $value['senha'];
                 $this->disponibilidade = $value['disponibilidade'];
                 $this->servicos = $value['servicos'];
@@ -103,8 +103,8 @@ class sociaModel {
         //Criar consulta
         $this-> senha = md5($this->senha);
         $sql = 'INSERT INTO socia values'
-                . '(0,"' . $this->email . '",'
-                . '"' . $this->nome . '",'
+                . '(0,"' . $this->nome . '",'
+                . '"' . $this->email . '",'
                 . '"' . $this->senha . '",'
                 . '"' . $this->disponibilidade . '",'
                 . '"' . $this->servicos . '")';
@@ -121,7 +121,7 @@ class sociaModel {
         $db->Conectar();
         $sql = 'UPDATE socia SET '
                 . 'email="' . $this->email . '",'
-                . 'nome="' . $this->nome . '",'
+                . 'nomes="' . $this->nome . '",'
                 . 'senha="' .  md5($this->senha) . '",'
                 . 'endereco="' . $this->disponibilidade . '",'
                 . 'idade="' . $this->servicos . '",'

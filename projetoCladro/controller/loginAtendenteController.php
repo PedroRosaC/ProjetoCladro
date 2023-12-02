@@ -4,7 +4,7 @@ if ($_POST) {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     @$nome = $_POST['nome'];
-    @$funcao = $_POST['funcao'];
+    @$funcao= $_POST['funcao'];
     require_once '../model/atendenteModel.php';
     $atendente = new atendenteModel();
     if (isset($_POST['id'])) {
@@ -14,7 +14,6 @@ if ($_POST) {
         $atendente->setSenha($senha);
         $atendente->setFuncao($funcao);
         $atendente->update();
-        header('location:../index.php');
     } else {
         $atendente->Autenticar($email, $senha);
     }
@@ -23,15 +22,15 @@ if ($_POST) {
         require_once './model/atendenteModel.php';
         @$id = $_REQUEST['id'];
         $atendente = new atendenteModel();
-        $atendente->loadById($id);
+        $socia->loadById($id);
     }
 }
 
 function loadById($id) {
-    require_once '../model/atendenteModel.php';
-    $atendente = new atendenteModel();
-    $atendente->loadById($id);
-    return $atendente;
+    require_once './model/atendenteModel.php';
+    $paciente = new pacienteModel();
+    $paciente->loadById($id);
+    return $paciente;
 }
 
 ?>

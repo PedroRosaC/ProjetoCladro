@@ -9,9 +9,9 @@ if ($_POST) {
     $consulta->setPaciente_nome($_POST['nome']);
     if (!empty($_POST['data']) && !empty($_POST['hora']) && !empty($_POST['servico']) && !empty($_POST['valor']) && !empty($_POST['nome'])) {
         $total = $consulta->insert();
-       header('location:../consultaADM.php?cod=172');
+       header('location:../consultaADM.php?cod=170');
     } else {
-        header('location:../consultaADM.php?cod=170');
+        header('location:../consultaADM.php?cod=171');
     }
 } else {
     header('location:../index.php');

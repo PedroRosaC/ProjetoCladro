@@ -1,5 +1,35 @@
 <?php
+require_once './controller/autenticationController.php';
 require_once './shared/header.php';
+?>
+<?php
+
+echo '<div style="
+    margin: 30px auto;
+    width: 350px;
+    align-content: center;">';
+echo '<div class="d-grid">';
+@$cod = $_REQUEST['cod'];
+if (isset($cod)) {
+    if ($cod == '170') {
+        echo ('<br><div class="alert alert-success">');
+        echo ('Dados inseridos.');
+        echo ('</div>');
+    }
+    if ($cod == '172') {
+        echo ('<br><div class="alert alert-danger">');
+        echo ('Sua sessão expirou, entre novamente!');
+        echo ('</div>');
+    }
+    if ($cod == '173') {
+        echo ('<br><div class="alert alert-danger">');
+        echo ('Verifique os dados e tente novamente!');
+        echo ('</div>');
+        echo ('<a class="text" href="cadastroADM.php">Clique Aqui para voltar ao cadastro!</a>');
+    }
+}
+echo '</div>';
+echo '</div>';
 ?>
 <?php
 if ($_REQUEST) {
@@ -97,7 +127,7 @@ if ($_REQUEST) {
                   <h3>Senha:</h3>
                   <input type="password" name="senha" id="senha" class="input" placeholder="Insira sua Senha">
                   <h3>Função:</h3>
-                  <input type="text" name="funcao" id="funcao" class="input" placeholder="Insira sua funcao">
+                  <input type="text" name="funcao" id="funcao" class="input" placeholder="Insira sua função">
                   <input type="submit" name="entrar" value="Entrar" class="submit">
                   </form>
                   </div>';
@@ -114,29 +144,6 @@ if ($_REQUEST) {
         </div>
         </form>';
 }
-?>
-<?php
-
-echo '<div style="
-    margin: 30px auto;
-    width: 350px;
-    align-content: center;">';
-echo '<div class="d-grid">';
-@$cod = $_REQUEST['cod'];
-if (isset($cod)) {
-    if ($cod == '170') {
-        echo ('<br><div class="alert alert-danger">');
-        echo ('Dados não inseridos.');
-        echo ('</div>');
-    }
-    if ($cod == '172') {
-        echo ('<br><div class="alert alert-success">');
-        echo ('Dados inseridos com sucesso');
-        echo ('</div>');
-    }
-}
-echo '</div>';
-echo '</div>';
 ?>
 <?php
 require_once './shared/footer.php';

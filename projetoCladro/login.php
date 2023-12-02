@@ -1,6 +1,30 @@
 <?php
 require_once './shared/header.php'
 ?>
+<?php 
+echo '<div style="
+    margin: 30px auto;
+    width: 350px;
+    align-content: center;">';
+echo '<div class="d-grid">';
+@$cod = $_REQUEST['cod'];
+if (isset($cod)) {
+    if (isset($cod)) {
+            if ($cod == '171') {
+                echo ('<br><div class = "alert alert-danger">');
+                echo ('Verifique usuário ou senha.');
+                echo ('</div>');
+            }
+        }
+    if ($cod == '172') {
+        echo ('<br><div class="alert alert-danger">');
+        echo ('Sua sessão expirou, entre novamente!');
+        echo ('</div>');
+    }
+}
+echo '</div>';
+echo '</div>';
+?>
 <?php
 if ($_POST) {
     @$tipo = $_POST['tipo'];
@@ -12,16 +36,6 @@ if ($_POST) {
         echo '<h3>Senha:</h3>';
         echo ' <input type = "password" name = "senha" id = "senha" class = "input" placeholder = "Senha">';
         echo '<input type = "submit" name = "entrar" value = "Entrar" class = "submit">';
-        echo '<div class = "d-grid">';
-        @$cod = $_REQUEST['cod'];
-        if (isset($cod)) {
-            if ($cod == '171') {
-                echo ('<br><div class = "alert alert-danger">');
-                echo ('Verifique usuário ou senha.');
-                echo ('</div>');
-            }
-        }
-        echo '</div>';
         echo '</div> </form>';
     }
     if ($tipo == 'socia') {
@@ -32,16 +46,6 @@ if ($_POST) {
         echo '<h3>Senha:</h3>';
         echo ' <input type = "password" name = "senha" id = "senha" class = "input" placeholder = "Senha">';
         echo '<input type = "submit" name = "entrar" value = "Entrar" class = "submit">';
-        echo '<div class = "d-grid">';
-        @$cod = $_REQUEST['cod'];
-        if (isset($cod)) {
-            if ($cod == '171') {
-                echo ('<br><div class = "alert alert-danger">');
-                echo ('Verifique usuário ou senha.');
-                echo ('</div>');
-            }
-        }
-        echo '</div>';
         echo '</div> </form>';
     }
     if ($tipo == 'atendente') {
@@ -52,16 +56,6 @@ if ($_POST) {
         echo '<h3>Senha:</h3>';
         echo ' <input type = "password" name = "senha" id = "senha" class = "input" placeholder = "Senha">';
         echo '<input type = "submit" name = "entrar" value = "Entrar" class = "submit">';
-        echo '<div class = "d-grid">';
-        @$cod = $_REQUEST['cod'];
-        if (isset($cod)) {
-            if ($cod == '171') {
-                echo ('<br><div class = "alert alert-danger">');
-                echo ('Verifique usuário ou senha.');
-                echo ('</div>');
-            }
-        }
-        echo '</div>';
         echo '</div> </form>';
     }
 } 
@@ -76,27 +70,6 @@ else {
         </div>
         </form>';
 }
-echo '<div style="
-    margin: 30px auto;
-    width: 350px;
-    align-content: center;">';
-echo '<div class="d-grid">';
-@$cod = $_REQUEST['cod'];
-if (isset($cod)) {
-    if ($cod == '170') {
-        echo ('<br><div class="alert alert-danger">');
-        echo ('Dados não inseridos.');
-        echo ('</div>');
-    }
-    if ($cod == '172') {
-        echo ('<br><div class="alert alert-success">');
-        echo ('Dados inseridos com sucesso');
-        echo ('</div>');
-    }
-}
-echo '</div>';
-echo '</div>';
-
 ?>
 <br><br><br>
 <?php

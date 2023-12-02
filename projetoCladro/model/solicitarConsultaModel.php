@@ -147,7 +147,7 @@ class solicitarConsultaModel {
         if (isset($this->atendente_id)) {
             @$this->socia_id = 'null';
         }
-        if (isset($this->socia_id)) {
+        else if (isset($this->socia_id)) {
             @$this->atendente_id = 'null';
         }
         $sql = 'UPDATE solicitarconsulta SET '
@@ -186,7 +186,7 @@ class solicitarConsultaModel {
         //Abrir conexão com banco de dados
         $db->Conectar();
         //Criar consulta
-        $sql = 'SELECT sc.id, p.nome,sc.data, sc.hora, sc.servico,a.nome,sc.data_aprov FROM epitelis.solicitarconsulta sc
+        $sql = 'SELECT sc.id, p.nome,sc.data, sc.hora, sc.servico, a.nome, sc.data_aprov FROM epitelis.solicitarconsulta sc
                 inner join epitelis.paciente p on sc.paciente_id = p.id
                 inner join epitelis.atendente a on sc.atendente_id = a.id
                 where situacao = 1';
