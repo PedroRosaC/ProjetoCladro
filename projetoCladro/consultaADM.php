@@ -15,15 +15,19 @@ if (isset($cod)) {
         echo ('Dados inseridos.');
         echo ('</div>');
     }if (isset($cod)) {
-            if ($cod == '171') {
-                echo ('<br><div class = "alert alert-danger">');
-                echo ('Verifique usuário ou senha.');
-                echo ('</div>');
-            }
+        if ($cod == '171') {
+            echo ('<br><div class = "alert alert-danger">');
+            echo ('Verifique usuário ou senha.');
+            echo ('</div>');
         }
+    }
     if ($cod == '172') {
         echo ('<br><div class="alert alert-danger">');
         echo ('Sua sessão expirou, entre novamente!');
+        echo ('</div>');
+    }if ($cod == '173') {
+        echo ('<br><div class="alert alert-danger">');
+        echo ('Verifique os dados e tente novamente!');
         echo ('</div>');
     }
 }
@@ -41,6 +45,7 @@ echo '</div>';
         <input type="text" name="servico" id="servico" class="input" placeholder="Insira o tipo de serviço">
         <h3>Valor:</h3>
         <input type="text" name="valor" id="valor" class="input" placeholder="Insira o valor da consulta">
+        <label><input type="checkbox" name="estoque" id="estoque" class="input" value="1">Estoque Usado</label>
         <h3>Qual paciente?</h3>
         <input type="text" name="nome" id="nome" class="input" placeholder="Insira o nome do paciente">
         <input type="submit" name="entrar" value="Entrar" class="submit">

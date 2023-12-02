@@ -1,9 +1,12 @@
 <?php
+
 require_once 'conexaoMysql.php';
+
 class ganhosModel {
+
     protected $id;
     protected $valor;
-    protected $consulta_id;
+    protected $consulta_valor;
     public function __construct() {
         
     }
@@ -13,8 +16,8 @@ class ganhosModel {
     public function getValor() {
         return $this->valor;
     }
-    public function getConsulta_id() {
-        return $this->consulta_id;
+    public function getConsulta_valor() {
+        return $this->consulta_valor;
     }
     public function setId($id): void {
         $this->id = $id;
@@ -22,7 +25,23 @@ class ganhosModel {
     public function setValor($valor): void {
         $this->valor = $valor;
     }
-    public function setConsulta_id($consulta_id): void {
-        $this->consulta_id = $consulta_id;
+    public function setConsulta_valor($consulta_valor): void {
+        $this->consulta_valor = $consulta_valor;
     }
+    public function insertganhoconsulta() {
+        //Criar um objeto de conexão
+        $db = new ConexaoMysql();
+        //Abrir conexão com banco de dados
+        $db->Conectar();
+        //Criar consulta
+        $sql = 'INSERT INTO ganhos values'
+                . '(0,"' . $this->valor . '",'
+                . '"' . $this->consulta_valor . '")';
+        //Executar método de inserção
+        $db->Executar($sql);
+        //Desconectar do banco
+        $db->Desconectar();
+        return $db->total;
     }
+    
+}
