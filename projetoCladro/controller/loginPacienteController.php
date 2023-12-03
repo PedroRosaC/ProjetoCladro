@@ -35,10 +35,8 @@ if ($_POST) {
 }
 
 function loadById($id) {
-    //Importo raças model
     require_once './model/pacienteModel.php';
     $paciente = new pacienteModel();
-    //Executa o método para carregar por id
     $paciente->loadById($id);
     return $paciente;
 }

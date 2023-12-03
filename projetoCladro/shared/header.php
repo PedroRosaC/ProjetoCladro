@@ -68,6 +68,22 @@
                     <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Alterar Cadastro PCT</a>
                     </div>
                 </a>
+                <a class="a" href="faturamentoADM.php">
+                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Faturamento</a>
+                    </div>
+                </a>
+                <a class="a" href="estoqueADM.php">
+                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Estoque</a>
+                    </div>
+                </a>
+                <a class="a" href="itemADM.php">
+                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Lançar Itens</a>
+                    </div>
+                </a>
+                <a class="a" href="despesasADM.php">
+                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Lançar Despesas</a>
+                    </div>
+                </a>
                 <a class="a" href="cadastroADM.php">
                     <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Cadastro</a>
                     </div>
@@ -95,6 +111,11 @@
                         "' . @session_start();
                     echo @$_SESSION['id'] . '">
                             <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Alterar cadastro PCT
+                            </div>
+                        </a>
+                        
+                        <a class="a" href="itemADM.php">
+                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Lançar Itens</a>
                             </div>
                         </a>
                         <a class="a" href="CadastroADM.php">

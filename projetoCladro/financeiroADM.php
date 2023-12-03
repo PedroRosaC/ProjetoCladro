@@ -1,32 +1,43 @@
 <?php
+require_once './controller/autenticationController.php';
 require_once './shared/header.php';
 ?>
 <div class="tabela">
-    <table style="width: 800px">
-        <tr>
-            <th class="tabelaitens">Ganhos</th>
-            <th class="tabelaitens">Despesas</th>
-            <th class="tabelaitens">Faturamento</th>
-        </tr>
-        <tr>
-            <td class="tabelaitens">
-                <?php
-                
-                ?></td>
-            <td class="tabelaitens">R$100,00</td>
-            <td class="tabelaitens"></td>
-
-        </tr>
-        <tr>
-            <td class="tabelaitens">R$500,00</td>
-            <td class="tabelaitens">R$400,00</td>
-            <td class="tabelaitens"></td>
-        </tr>
-        <tr>
-            <td class="tabelaitens"></td>
-            <td class="tabelaitens"></td>
-            <td class="tabelaitens">R$500,00</td>
-        </tr>
+    <table>
+        <?php
+        require_once './controller/procurarControlle.php';
+        $ganhosList = loadGanhos();
+        echo '<tr>';
+        echo '<th class="tabelaitens">Ganhos</th>';
+        foreach ($ganhosList as $ganhos) {
+            echo '<td class="tabelaitens">';
+            echo 'R$' . $ganhos['valor'] . '';
+            echo '</td>';
+        }
+        echo '</tr>';
+        ?>
+        <?php
+        $despesasList = loadDespesas();
+        echo '<tr>';
+        echo '<th class="tabelaitens">Despesas</th>';
+        foreach ($despesasList as $despesas) {
+            echo '<td class="tabelaitens">';
+            echo 'R$' . $despesas['valor_despesa'] . '';
+            echo '</td>';
+        }
+        echo '</tr>';
+        ?>
+        <?php
+        $faturamentoList = loadFaturamento();
+        echo '<tr>';
+        echo '<th class="tabelaitens">Faturamento</th>';
+        foreach ($faturamentoList as $faturamento) {
+            echo '<td class="tabelaitens">';
+            echo 'R$' . $faturamento['valor_total'] . '';
+            echo '</td>';
+        }
+        echo '</tr>';
+        ?>
     </table>
 </div>
 <?php

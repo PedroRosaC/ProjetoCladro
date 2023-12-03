@@ -43,5 +43,17 @@ class ganhosModel {
         $db->Desconectar();
         return $db->total;
     }
-    
+    public function loadGanhos() {
+        //Criar um objeto de conexão
+        $db = new ConexaoMysql();
+        //Abrir conexão com banco de dados
+        $db->Conectar();
+        //Criar consulta
+        $sql = 'SELECT valor FROM ganhos';
+        //Executar método de consulta
+        $resultList = $db->Consultar($sql);
+        //Desconectar do banco
+        $db->Desconectar();
+        return $resultList;
+    }
 }

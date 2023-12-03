@@ -105,9 +105,7 @@ class pacienteModel {
         $sql = 'SELECT * FROM paciente where id =' . $id;
         //Executar método de consulta
         $resultList = $db->Consultar($sql);
-        //Verifica se retornou um registro da base de dados
         if ($db->total == 1) {
-            //Se retornou preenche as propriedades de raça
             foreach ($resultList as $value) {
                 $this->id = $value['id'];
                 $this->email = $value['email'];
@@ -120,7 +118,6 @@ class pacienteModel {
                 $this->cpf = $value['cpf'];
             }
         }
-        //Desconectar do banco
         $db->Desconectar();
         return $resultList;
     }

@@ -179,7 +179,6 @@ class solicitarConsultaModel {
         $db->Desconectar();
         return $resultList;
     }
-
     public function loadAll1A() {
         //Criar um objeto de conexão
         $db = new ConexaoMysql();

@@ -14,7 +14,7 @@ if ($_POST) {
         $ganhos = new ganhosModel();
         $ganhos->setValor($_POST['valor']);
         $ganhos->setConsulta_valor($_POST['valor']);
-        $ganhos -> insertganhoconsulta();
+        $ganhos-> insertganhoconsulta();
        header('location:../consultaADM.php?cod=170');
     } else {
         header('location:../consultaADM.php?cod=173');
