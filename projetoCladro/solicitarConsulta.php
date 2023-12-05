@@ -85,7 +85,7 @@ if (@$_SESSION['user'] == 'socia' || @$_SESSION['user'] == 'atendente') {
         foreach ($solicitarList as $solicitar) {
             echo '<tr>';
             echo '<td class="tabelaitens">';
-            echo $solicitar['nome'];
+            echo $solicitar['nome_paciente'];
             echo '</td>';
             echo '<td class="tabelaitens">';
             echo $solicitar['data'];
@@ -97,7 +97,7 @@ if (@$_SESSION['user'] == 'socia' || @$_SESSION['user'] == 'atendente') {
             echo $solicitar['servico'];
             echo '</td>';
             echo '<td class="tabelaitens">';
-            echo $solicitar['nome'];
+            echo $solicitar['nome_socia'];
             echo '</td>';
             echo '<td class="tabelaitens">';
             echo $solicitar['data_aprov'];
@@ -106,7 +106,7 @@ if (@$_SESSION['user'] == 'socia' || @$_SESSION['user'] == 'atendente') {
         } foreach ($solicitarLista as $solicitar) {
             echo '<tr>';
             echo '<td class="tabelaitens">';
-            echo $solicitar['nome'];
+            echo $solicitar['nome_paciente'];
             echo '</td>';
             echo '<td class="tabelaitens">';
             echo $solicitar['data'];
@@ -118,7 +118,7 @@ if (@$_SESSION['user'] == 'socia' || @$_SESSION['user'] == 'atendente') {
             echo $solicitar['servico'];
             echo '</td>';
             echo '<td class="tabelaitens">';
-            echo $solicitar['nome'];
+            echo $solicitar['nome_atendente'];
             echo '</td>';
             echo '<td class="tabelaitens">';
             echo $solicitar['data_aprov'];
@@ -154,7 +154,7 @@ if (@$_SESSION['user'] == 'socia' || @$_SESSION['user'] == 'atendente') {
                 //Operações
                 echo '<td class="tabelaitens">';
                 echo '<a class="btn btn-success" href="./controller/solicitarConsultaController.php?'
-                . 'cod=aprov&&id=' . $solicitar['id'] . '&&data_aprov=' . (new \DateTime())->format('Y-m-d H:i:s') . ''
+                . 'cod=aprov&&id=' . $solicitar['id'] . '&&data_aprov=' . (new \DateTime())->format('Y-m-d') . ''
                 . '&&adm_id=' . @$_SESSION['ADM'] . '">Aprovar</a>';
                 echo '</td>';
                 echo '</tr>';
@@ -173,6 +173,6 @@ function getDatetimeNow() {
     //date_default_timezone_set('Brazil/East');
     $datetime = new DateTime();
     $datetime->setTimezone($tz_object);
-    return $datetime->format('Y\-m\-d\ h:i:s');
+    return $datetime->format('Y\-m\-d\ ');
 }
 ?>

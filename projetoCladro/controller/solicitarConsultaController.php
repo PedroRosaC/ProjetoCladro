@@ -25,13 +25,10 @@ if ($_REQUEST) {
             
             session_start();
             if ($_SESSION['user'] == 'socia') {
-                echo 'tem socia';
                 require_once '../model/sociaModel.php';
                 @$socia_id = $_SESSION['ADM'];
-                echo $socia_id;
             }
             if ($_SESSION['user'] == 'atendente') {
-                echo 'tem atendente';
                 require_once '../model/atendenteModel.php';
                 @$atendente_id = $_SESSION['ADM'];
                 
@@ -42,7 +39,6 @@ if ($_REQUEST) {
             @$solicitar->setAtendente_id($atendente_id);
             //exclui em seguida
             $total = $solicitar->aprovar();
-            echo $total;
             if ($total == 1) {
                 header('location:../solicitarConsulta.php?cod=170');
             } else {

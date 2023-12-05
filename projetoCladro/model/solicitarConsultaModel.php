@@ -151,10 +151,10 @@ class solicitarConsultaModel {
             @$this->atendente_id = 'null';
         }
         $sql = 'UPDATE solicitarconsulta SET '
-                . 'data_aprov = "' . $this->data_aprov . '" ,'
-                . 'situacao = 1, '
-                 . 'socia_id = ' . $this->socia_id . ', '
-                . 'atendente_id = ' . $this->atendente_id . ''
+                . ' data_aprov = "' . $this->data_aprov . '" ,'
+                . ' situacao = 1, '
+                . ' socia_id = ' . $this->socia_id . ', '
+                . ' atendente_id = ' . $this->atendente_id . ''
                 . ' WHERE id = ' . $this->id;
         //Executar método de consulta1
         echo $sql;
@@ -169,7 +169,7 @@ class solicitarConsultaModel {
         //Abrir conexão com banco de dados
         $db->Conectar();
         //Criar consulta
-        $sql = 'SELECT sc.id, p.nome,sc.data, sc.hora, sc.servico,s.nome,sc.data_aprov FROM epitelis.solicitarconsulta sc
+        $sql = 'SELECT sc.id, p.nome as nome_paciente,sc.data, sc.hora, sc.servico, s.nome as nome_socia,sc.data_aprov FROM epitelis.solicitarconsulta sc
                 inner join epitelis.paciente p on sc.paciente_id = p.id
                 inner join epitelis.socia s on sc.socia_id = s.id
                 where situacao = 1';
@@ -185,7 +185,7 @@ class solicitarConsultaModel {
         //Abrir conexão com banco de dados
         $db->Conectar();
         //Criar consulta
-        $sql = 'SELECT sc.id, p.nome,sc.data, sc.hora, sc.servico, a.nome, sc.data_aprov FROM epitelis.solicitarconsulta sc
+        $sql = 'SELECT sc.id, p.nome as nome_paciente,sc.data, sc.hora, sc.servico, a.nome as nome_atendente, sc.data_aprov FROM epitelis.solicitarconsulta sc
                 inner join epitelis.paciente p on sc.paciente_id = p.id
                 inner join epitelis.atendente a on sc.atendente_id = a.id
                 where situacao = 1';
