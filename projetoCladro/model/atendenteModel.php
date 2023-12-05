@@ -73,7 +73,7 @@ class atendenteModel {
             $_SESSION['login'] = $this->email;
             header('location:../index.php');
         } else {
-            //header('location:../login.php?cod=171');
+            header('location:../login.php?cod=171');
         }
         $db->Desconectar();
         return $resultList;

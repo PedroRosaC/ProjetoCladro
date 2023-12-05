@@ -51,10 +51,6 @@
                             <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="text">Home</a>
                             </div>
                         </a>
-                        <a class="a" href="#">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><a class="text">Perfil</a>
-                            </div>
-                        </a>
                     </div>';
                 }
                 if (@$_SESSION['user'] == 'socia') {
@@ -113,19 +109,18 @@
                             <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Alterar cadastro PCT
                             </div>
                         </a>
-                        
                         <a class="a" href="itemADM.php">
                             <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Lançar Itens</a>
+                            </div>
+                        </a>
+                        <a class="a" href="estoqueADM.php">
+                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Estoque</a>
                             </div>
                         </a>
                         <a class="a" href="CadastroADM.php">
                             <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Cadastro
                             </div>
                         </a>
-                        <a class="a" href="consultaADM.php">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">Criar Consulta
-                            </div>
-                        </a>  
                         <a class="a" href="solicitarConsulta.php">
                             <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg">consultas Solicitadas
                             </div>

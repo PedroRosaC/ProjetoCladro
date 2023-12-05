@@ -1,5 +1,4 @@
 <?php
-require_once './controller/autenticationController.php';
 require_once './shared/header.php';
 ?>
 
@@ -48,7 +47,7 @@ if (@$_SESSION['user'] == 'pct') {
         <input type="date" name="data" id="data" class="input" placeholder="Insira data desejada">
         <h3>Hora:</h3>
         <input type="time" name="hora" id="hora" class="input" placeholder="Insira hora desejada">
-        <h3>Seriço:</h3>
+        <h3>Serviço:</h3>
         <input type="text" name="servico" id="servico" class="input" placeholder="Insira o tipo de serviço">
         <input type="hidden" name="paciente_id" value="' . $_SESSION['id'] . '">
         <input type="submit" name="entrar" value="Entrar" class="submit">

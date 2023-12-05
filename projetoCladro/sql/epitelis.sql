@@ -62,7 +62,7 @@ CREATE TABLE item (
 CREATE TABLE despesas (
   id int NOT NULL AUTO_INCREMENT,
   valor_despesa float NOT NULL,
-  descricao int NOT NULL,
+  descricao TEXT NOT NULL,
   PRIMARY KEY (id));
 CREATE TABLE item_has_consulta (
   id int NOT NULL AUTO_INCREMENT,
@@ -118,7 +118,8 @@ CREATE TABLE solicitarconsulta (
   FOREIGN KEY (socia_id) REFERENCES socia(id),
   FOREIGN KEY (atendente_id) REFERENCES atendente(id));
 
-INSERT INTO paciente VALUES (20, 'Pedro Rosa Cauduro', 'oi@oi', '74574f42cc1bdf7b79e0476facf32fe0', 'gfgfdg', 96, '2023-12-21', 2147483647, 425);INSERT INTO socia VALUES (5, 'Pedro Rosa Cauduro', 'ADM@ADM', '6fb4f22992a0d164b77267fde5477248', 'SMP', 'É');
+INSERT INTO paciente VALUES (20, 'Pedro Rosa Cauduro', 'oi@oi', '74574f42cc1bdf7b79e0476facf32fe0', 'gfgfdg', 96, '2023-12-21', 2147483647, 425);
+INSERT INTO socia VALUES (5, 'Pedro Rosa Cauduro', 'ADM@ADM', '6fb4f22992a0d164b77267fde5477248', 'SMP', 'É');
   
 INSERT INTO solicitarconsulta VALUES (2, 19, '2023-12-01', '19:35:00', 'poder', '2023-12-01', 1, 1, NULL);
 INSERT INTO solicitarconsulta VALUES (3, 19, '2023-12-01', '19:35:00', 'poder', '2023-12-02', 1, 5, NULL);

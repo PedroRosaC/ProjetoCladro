@@ -53,6 +53,5 @@ class despesasModel {
         $db->Desconectar();
         return $resultList;
     }
-
     }
 

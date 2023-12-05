@@ -45,17 +45,17 @@ if ($cod == 'update') {
     $itemObject = loadByIdItem($id);
     echo '<div class = "entrar entrar2">
     <form method = "POST" action = "controller/itemController.php">
-    <input type="hidden" name="id" value="' . @session_start(); $_SESSION['item']; '" >
+    <input type="hidden" name="id" value="'.$id.'" >
     <h1>Criar Item:</h1>
     <h3>Nome:</h3>
-    <input type = "text" name = "nome" id = "nome" class = "input" value="' . (isset($itemObject) ? $itemObject->getNome : '') . '">
+    <input type = "text" name = "nome" id = "nome" class = "input" value="' . (isset($itemObject) ? $itemObject->getNome() : '') . '">
     <h3>Data de Validade:</h3>
-    <input type = "date" name = "data_validade" id = "data_validade" class = "input" value="' . (isset($itemObject) ? $itemObject->getData_validade : '') . '">
-    <label><input type = "checkbox" name = "reutilizavel" id = "reutilizavel" class = "input" value="' . (isset($itemObject) ? $itemObject->getReutilizavel : '') . '">É Reutilizável?</label>
+    <input type = "date" name = "data_validade" id = "data_validade" class = "input" value="' . (isset($itemObject) ? $itemObject->getData_validade() : '') . '">
+    <label><input type = "checkbox" name = "reutilizavel" id = "reutilizavel" class = "input" value="' . (isset($itemObject) ? $itemObject->getReutilizavel() : '') . '">É Reutilizável?</label>
     <h3>Valor:</h3>
-    <input type = "text" name = "valor" id = "valor" class = "input" value="' . (isset($itemObject) ? $itemObject->getValor : '') . '">
+    <input type = "text" name = "valor" id = "valor" class = "input" value="' . (isset($itemObject) ? $itemObject->getValor() : '') . '">
     <h3>Qual a quantidade disponível?</h3>
-    <input type = "number" name = "Quantidade" id = "Quantidade" class = "input" value="' . (isset($itemObject) ? $itemObject->getQuantidade : '') . '">
+    <input type = "number" name = "Quantidade" id = "Quantidade" class = "input" value="' . (isset($itemObject) ? $itemObject->getQuantidade() : '') . '">
     <input type = "submit" name = "entrar" value = "Entrar" class = "submit">
     </form>
     </div>';

@@ -68,5 +68,4 @@ class faturamentoModel {
         $db->Desconectar();
         return $db->total;
     }
-
 }

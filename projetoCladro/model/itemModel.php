@@ -76,7 +76,7 @@ class itemModel {
                 . 'Quantidade="' . $this->Quantidade . '",'
                 . 'WHERE id = ' . $this->id;
         echo $sql;
-        //header('location:../cadastroADM.php?cod=170');
+        //header('location:../itemADM.php?cod=170');
         $db->Executar($sql);
         //Desconectar do banco
         $db->Desconectar();
@@ -95,7 +95,6 @@ class itemModel {
                 . '"' . $this->reutilizavel . '",'
                 . '"' . $this->valor . '",'
                 . '"' . $this->Quantidade . '")';
-        $_SESSION['item']= $this->id;
         //Executar método de inserção
         $db->Executar($sql);
         //Desconectar do banco
@@ -112,19 +111,18 @@ class itemModel {
         $sql = 'SELECT * FROM item';
         //Executar método de consulta
         $resultList = $db->Consultar($sql);
-
         //Desconectar do banco
         $db->Desconectar();
         return $resultList;
     }
 
-    public function loadByIdItem() {
+    public function loadByIdItem($id) {
         //Criar um objeto de conexão
         $db = new ConexaoMysql();
         //Abrir conexão com banco de dados
         $db->Conectar();
         //Criar consulta
-        $sql = 'SELECT * FROM item WHERE id=' . $this->id;
+        $sql = 'SELECT * FROM item WHERE id=' . $id;
         //Executar método de consulta
         $resultList = $db->Consultar($sql);
         if ($db->total == 1) {
@@ -139,7 +137,7 @@ class itemModel {
         }
         //Desconectar do banco
         $db->Desconectar();
-        return $resultList;
+        return $this;
     }
 
 }
