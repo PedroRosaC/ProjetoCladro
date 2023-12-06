@@ -32,8 +32,6 @@
                     ?>
                     <a href="index.php"><img src="img/logo.png" class="logo img"></a>
                 </div>
-
-
                 <?php
                 require_once './model/pacienteModel.php';
                 @session_start();
@@ -42,13 +40,12 @@
                         <div class="close">
                             <img src="img/X.png" class="close-btn whiteimg" onclick="fechar()">
                         </div>
-                        <a class="a" href="solicitarConsulta.php">
-                        <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Solicitar Consulta</a>
-                        </div>
-                        </a>
-                        
                         <a class="a" href="index.php">
                         <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Home</a>
+                        </div>
+                        </a>
+                        <a class="a" href="solicitarConsulta.php">
+                        <div class="itens"><img src="img/icon/consulta.png" alt="homeimagem" class="icon whiteimg"><p class="text">Solicitar Consulta</a>
                         </div>
                         </a>
                     </div>';
@@ -61,41 +58,39 @@
                         <a class="a" href="cadastroADM.php?pg=1&&id=
                         "' . @session_start();
                     echo @$_SESSION['id'] . '">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Alterar Cadastro PCT</a>
+                    <div class="itens"><img src="img/icon/cadastro.png" alt="homeimagem" class="icon whiteimg"><p class="text">Alterar Cadastro PCT</a>
+                    </div>
+                </a>
+                <a class="a" href="cadastroADM.php">
+                    <div class="itens"><img src="img/icon/cadastro.png" alt="homeimagem" class="icon whiteimg"><p class="text">Cadastro</a>
+                    </div>
+                </a>
+                <a class="a" href="consultaADM.php">
+                    <div class="itens"><img src="img/icon/consulta.png" alt="homeimagem" class="icon whiteimg"><p class="text">Criar Consulta</a>
+                    </div>
+                </a>
+                <a class="a" href="solicitarConsulta.php">
+                    <div class="itens"><img src="img/icon/consulta.png" alt="homeimagem" class="icon whiteimg"><p class="text">Consultas Solicitadas</a>
+                    </div>
+                </a> 
+                <a class="a" href="estoqueADM.php">
+                    <div class="itens"><img src="img/icon/estoque.png" alt="homeimagem" class="icon whiteimg"><p class="text">Estoque</a>
+                    </div>
+                </a>
+                <a class="a" href="itemADM.php">
+                    <div class="itens"><img src="img/icon/itens.png" alt="homeimagem" class="icon whiteimg"><p class="text">Lançar Itens</a>
+                    </div>
+                </a>
+                <a class="a" href="despesasADM.php">
+                    <div class="itens"><img src="img/icon/despesas.png" alt="homeimagem" class="icon whiteimg"><p class="text">Lançar Despesas</a>
                     </div>
                 </a>
                 <a class="a" href="faturamentoADM.php">
                     <div class="itens"><img src="img/icon/faturamento.png" alt="homeimagem" class="icon whiteimg"><p class="text">Faturamento</a>
                     </div>
                 </a>
-               
-                <a class="a" href="despesasADM.php">
-                    <div class="itens"><img src="img/icon/despesas.png" alt="homeimagem" class="icon whiteimg"><p class="text">Lançar Despesas</a>
-                    </div>
-                </a>
                 <a class="a" href="financeiroADM.php">
                     <div class="itens"><img src="img/icon/financeiro.png" alt="homeimagem" class="icon whiteimg"><p class="text">Financeiro</a>
-                    </div>
-                </a>
-                <a class="a" href="cadastroADM.php">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Cadastro</a>
-                    </div>
-                </a>
-                
-                <a class="a" href="consultaADM.php">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Criar Consulta</a>
-                    </div>
-                </a>
-                <a class="a" href="solicitarConsulta.php">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Consultas Solicitadas</a>
-                    </div>
-                </a> 
-                <a class="a" href="itemADM.php">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Lançar Itens</a>
-                    </div>
-                </a>
-                <a class="a" href="estoqueADM.php">
-                    <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Estoque</a>
                     </div>
                 </a>
             </div>';
@@ -105,25 +100,26 @@
                         <div class="close">
                             <img src="img/X.png" class="close-btn whiteimg" onclick="fechar()">
                         </div>
-                        <a class="a" href="cadastroADM.php?pg=1&&id="' . @session_start();echo @$_SESSION['id'] . '">
-                        <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Alterar Cadastro PCT</a>
+                        <a class="a" href="cadastroADM.php?pg=1&&id="' . @session_start();
+                    echo @$_SESSION['id'] . '">
+                        <div class="itens"><img src="img/icon/cadastro.png" alt="homeimagem" class="icon whiteimg"><p class="text">Alterar Cadastro PCT</a>
                         </div>
-                        </a>
-                        <a class="a" href="itemADM.php">
-                        <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Lançar Itens</a>
-                        </div>
-                        </a>
-                        <a class="a" href="estoqueADM.php">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Estoque</a>
-                            </div>
                         </a>
                         <a class="a" href="CadastroADM.php">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Cadastro</a>
+                            <div class="itens"><img src="img/icon/cadastro.png" alt="homeimagem" class="icon whiteimg"><p class="text">Cadastro</a>
                         </div>
                         </a>
                         <a class="a" href="solicitarConsulta.php">
-                            <div class="itens"><img src="img/home.png" alt="homeimagem" class="icon whiteimg"><p class="text">Consultas Solicitadas</a>
+                            <div class="itens"><img src="img/icon/consulta.png" alt="homeimagem" class="icon whiteimg"><p class="text">Consultas Solicitadas</a>
                         </div>
+                        </a>
+                        <a class="a" href="itemADM.php">
+                        <div class="itens"><img src="img/icon/itens.png" alt="homeimagem" class="icon whiteimg"><p class="text">Lançar Itens</a>
+                        </div>
+                        </a>
+                        <a class="a" href="estoqueADM.php">
+                            <div class="itens"><img src="img/icon/estoque.png" alt="homeimagem" class="icon whiteimg"><p class="text">Estoque</a>
+                            </div>
                         </a>
                     </div>';
                 }

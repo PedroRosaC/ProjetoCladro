@@ -38,17 +38,44 @@ require_once './shared/header.php';
             </p>
         </div>
     </div>
-    <div class="informacoes">
-        <h1>Nós no Fala Doctor!</h1>
-        <h3>Enf. Liana:</h3>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/rQhraIA7ALQ?si=-9ZCOwJdjgnVoO2x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+    <div class="info"> 
+        <div class="informacoes">
+            <h1>Nós no Fala Doctor!</h1>
+            <br>
+            <h3>Enf. Liana:</h3>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/rQhraIA7ALQ?si=-9ZCOwJdjgnVoO2x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
                     encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <h3>Enf. Mônica:</h3>
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DFCvEvmntfo?si=dTsJNnUaMFGrThMs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+            <br>
+            <br>
+            <h3>Enf. Mônica:</h3>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DFCvEvmntfo?si=dTsJNnUaMFGrThMs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
                     encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="informacoes"><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1>Área reservada para a postagem de conteúdos!</h1>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
     </div>
-
 </div>
+
 <?php
 require_once './shared/footer.php'
 ?>
