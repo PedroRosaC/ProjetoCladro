@@ -84,7 +84,7 @@ p{
     margin-top: 5px;
 }
 .check{
-    displaly: flex;
+    display: flex;
     flex-direction: row;   
 }
 .checkb{
@@ -147,8 +147,9 @@ p{
 
 /* estilo página inicial ----- */
 .info{
-    margin: 0 auto;
-    display: flex; 
+    margin: 0 60px auto;
+    display: flex;
+    flex-direction: column; 
 
 }
 .informacoes {
@@ -164,7 +165,7 @@ p{
     z-index:3;
 }
 .informacoesDiv{
-    margin: 0 auto;
+    display: flex;
 }
 
 /* --------------------------- */

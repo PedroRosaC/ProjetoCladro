@@ -67,11 +67,12 @@ if ($cod == 'update') {
     <input type = "text" name = "nome" id = "nome" class = "input" placeholder = "Insira o nome do Item">
     <h3>Data de Validade:</h3>
     <input type = "date" name = "data_validade" id = "data_validade" class = "input" placeholder = "Insira a data de validade">
-    <label><input type = "checkbox" name = "reutilizavel" id = "reutilizavel" class = "input" value = "s">É Reutilizável?</label>
+    <h3>É reutilizável?</h3>
+        <input type="checkbox" name="estoque" id="estoque" style="width: 20px; height: 20px;" value="1">
     <h3>Valor:</h3>
     <input type = "text" name = "valor" id = "valor" class = "input" placeholder = "Insira o valor da consulta">
-    <h3>Qual a quantidade disponível?</h3>
-    <input type = "number" name = "Quantidade" id = "Quantidade" class = "input" placeholder = "Insira a quantidade disponível">
+    <h3>Quantia disponível:</h3>
+    <input type = "number" name = "Quantidade" id = "Quantidade" class = "input" placeholder = "Quantia disponível">
     <input type = "submit" name = "entrar" value = "Entrar" class = "submit">
     </form>
     </div>';
